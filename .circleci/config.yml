@@ -1,0 +1,54 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1
+  browser-tools: circleci/browser-tools@1.1.1
+  cypress: cypress-io/cypress@1
+jobs:
+  test:
+    docker:
+      - image: cimg/node:lts-browsers
+    environment:
+      CHROME_BIN: /usr/bin/google-chrome
+    steps:
+      - checkout
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run: google-chrome --version
+      - restore_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
+      - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - run: bash <(curl -s https://codecov.io/bash) -f coverage/lcov.info -X fix
+  e2e:
+     docker:
+       - image: cimg/node:lts-browsers
+     environment:
+       CHROME_BIN: /usr/bin/google-chrome
+     steps:
+       - checkout
+       - browser-tools/install-chrome
+       - browser-tools/install-chromedriver
+       - run: google-chrome --version
+       - cypress/install
+       - restore_cache:
+           key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+       - run:
+           name: Install dependencies
+           command: npm install
+       - save_cache:
+           key: my-project-{{ .Branch }}-{{ checksum "package-lock.json" }}
+           paths:
+             - "node_modules"
+       - run:
+           name: Run e2e tests
+           command: npm run e2e
+
+workflows:
+  run-testing:
+    jobs:
+      - test
+      - e2e
