@@ -28,7 +28,6 @@ import { BrowserModule } from '@angular/platform-browser'
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { ErrorPage } from './components/errorPage/errorPage.component';
-import { Sample } from './components/sample/sample.component';
 
 
 @NgModule({
@@ -39,7 +38,6 @@ import { Sample } from './components/sample/sample.component';
   declarations: [
     AppComponent,
     ErrorPage,
-    Sample
   ],
   providers: [],
   bootstrap: [AppComponent]
