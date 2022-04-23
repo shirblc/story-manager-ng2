@@ -1,15 +1,17 @@
-# Angular-Gulp
+# Story Manager
 
-[![CircleCI](https://circleci.com/gh/shirblc/angular-gulp.svg?style=shield)](https://circleci.com/gh/shirblc/angular-gulp.svg)
-[![codecov](https://codecov.io/gh/shirblc/angular-gulp/graph/badge.svg)](https://codecov.io/gh/shirblc/angular-gulp)
-[![Known Vulnerabilities](https://snyk.io/test/github/shirblc/angular-gulp/badge.svg)](https://snyk.io/test/github/shirblc/angular-gulp)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/shirblc/angular-gulp)
+[![CircleCI](https://circleci.com/gh/shirblc/story-manager-ng2.svg?style=shield)](https://circleci.com/gh/shirblc/story-manager-ng2.svg)
+[![codecov](https://codecov.io/gh/shirblc/story-manager-ng2/graph/badge.svg)](https://codecov.io/gh/shirblc/story-manager-ng2)
+[![Known Vulnerabilities](https://snyk.io/test/github/shirblc/story-manager-ng2/badge.svg)](https://snyk.io/test/github/shirblc/story-manager-ng2)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/shirblc/story-manager-ng2)
 
 ## Version
 
-Version 2.
+Version 1.
 
-Built using the [gulp-site-template](https://github.com/shirblc/gulp-site-template) repo.
+Built using the [angular-gulp](https://github.com/shirblc/angular-gulp) repo.
+
+Originally created as an AngularJS app (see [story-manager-ng1](https://github.com/shirblc/story-manager-ng1) and [story-manager-server-ng1](https://github.com/shirblc/story-manager-server-ng1)). Since AngularJS has now reached it's EOL, I've migrated the project to Angular (currently at version 13).
 
 ## Requirements
 
@@ -21,13 +23,16 @@ Built using the [gulp-site-template](https://github.com/shirblc/gulp-site-templa
 
 1. Download or clone the repo.
 2. cd into the project directory.
-3. cd into frontend.
-4. Run ```npm install``` to install dependencies.
-5. Run ```npm run compile:dev``` to compile for the files for local development.
-6. Run ```npm run serve``` to start the local server.
-7. Open localhost:3000.
+3. Run ```npm install``` to install dependencies.
+4. Run ```npm run compile:dev``` to compile for the files for local development.
+5. Run ```npm run serve``` to start the local server.
+6. Open localhost:3000.
 
 **For your convenience,** this project utilises Gulp's 'watch' functionality. In order to activate it  while developing, run ```gulp watch```. For more information about Gulp watch, check the [Gulp documentation](https://gulpjs.com/docs/en/getting-started/watching-files/).
+
+### Users
+
+**Not yet ready for users!**
 
 ## Contents
 
@@ -35,14 +40,19 @@ Built using the [gulp-site-template](https://github.com/shirblc/gulp-site-templa
 
 **Located in:** [src/app/components](./src/app/components)
 
-1. **Sample component** - A sample component meant as an example. Feel free to delete.
-2. **Error page** - A sample error page, to which the user is redirected whenever the route doesn't match an existing route (already configured in the routing module). Feel free to configure according to your needs.
+The app contains a Story Manager module (in main.ts), which contains two controllers for two templates:
+
+1. **LibraryManager** (Previously `libraryMgr` + `libraryCtrl`) - Displays the name and synopsis of each added story. Allows users to add and deletec stories.
+2. **StoryManager** (Previously `storyMgr` + `storyCtrl`) - Displays the name and synopsis of each chapter within the currently open story. Allows users to edit a story's details, as well sa adding, deleting and editing chapters' details.
+	- **storyEdit** - Where the user can edit the story's details.
+	- **chapterEdit** - Where the user can edit a chapter's details.
+3. **Settings** (previously `settings` + `settingsCtrl`) - Allows the users to change several of the app's settings. Still in development.
 
 ### Services
 
 **Located in:** [src/app/services](./src/app/services)
 
-1. **Sample service** - Provided in the app root. A sample service meant as an example. Feel free to delete.
+1. **librarian** - A service provided in the app root. It's responsible for getting a story's or a library's data and posting changes to the JSON file containing the library information (data/stories.JSON).
 
 ### Production Scripts
 
