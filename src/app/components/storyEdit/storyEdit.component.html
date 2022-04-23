@@ -1,0 +1,75 @@
+<!-- storyEdit Template
+	Story Manager Template
+	Written by Shir Bar Lev  -->
+
+<!-- Navigation breadcrumb -->
+<nav>
+	<div id="breadcrumb"><a [routerLink]="/">Home</a> / <a [routerLink]="['/stories', storyDetails.id]">Story {{ storyDetails.id }}</a> / Edit</div>
+</nav>
+
+<section id="storyEdit">
+	<!-- Edit Story section -->
+	<div id="editStory">
+		<h3>Edit Story Details</h3>
+		<span class="formTitle">Story Title:</span> <input type="text" value="{{ storyDetails.title }}" id="storyTitle">
+		<div class="formTitle">Story Synopsis:</div>
+		<textarea id="storySynopsis" rows="5" cols="40">{{ storyDetails.synopsis }}</textarea>
+		<br>
+		<button (click)=changeDetails()">Save</button>
+		<button (click)="deleteItem(story.storyName)">Delete Story</button>
+	</div>
+
+	<!-- Edit chapters section -->
+	<div id="chapters">
+		<h3 id="editTitle">Edit Chapters</h3>
+		<button id="addChapter" class="controlBtn" (click)="openAddPanel()"><i class="fas fa-plus-circle"></i></button>
+		<button id="removeChapters" class="controlBtn" (click)="openRemovePanel()"><i class="fas fa-minus-circle"></i></button>
+		<button id="deleteAll" class="controlBtn" (click)="openDeletePopup('all chapters')"><i class="fas fa-times-circle"></i></button>
+		<button id="doneBtn" class="controlBtn off" (click)="closeRemovePanel()">Finish editing</button>
+		<!-- Chapters' details -->
+		<!-- If there are chapters in the array -->
+		<div class="chapters" *ngIf="storyDetails.chapters.length != 0">
+			<div class="chapter" *ngFor="let chapter in storyDetails.chapters">
+				<button class="remove off" (click)="openDeletePopup('Chapter ' + chapter.number)"><i class="fas fa-times-circle"></i></button>
+				<div class="chapterDetails">
+					<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
+					<h4 class="chapterTitle"> {{ chapter.title }} </h4>
+					<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
+					<a ui-sref="editChapter({ id: story.storyID, chapterID: chapter.number })">Edit</a>
+				</div>
+			</div>
+		</div>
+		<!-- If there aren't any stories in the array -->
+		<div id="noData" *ngIf="storyDetails.chapters.length == 0">
+			<h3>There's nothing here!</h3>
+			<div>Create your first chapter with the buttons above.</div>
+		</div>
+	</div>
+</section>
+
+<!-- Modal box and popups -->
+<div id="modalBox" class="off">
+	<!-- Confirm delete popup -->
+	<div id="deletePopUp" class="popup off">
+		<p>You can't undo this action!</p>
+		<p>Are you sure you want to delete</p>
+		<h3> {{ story.forDeletion }}?</h3>
+		<br>
+		<button (click)="deleteItem()">Delete</button>
+		<button (click)=closePopUp()">Abort</button>
+	</div>
+
+	<!-- Add chapter popup -->
+	<div id="addPopUp" class="popup off">
+		<h3>Add Chapter</h3>
+		<span class="formTitle">Chapter Number:</span> <input type="text" value="" id="chapterID">
+		<br>
+		<span class="formTitle">Chapter Title:</span> <input type="text" value="" id="chapterTitle">
+		<br>
+		<div class="formTitle">Chapter Synopsis:</div>
+		<textarea id="chapterSynopsis" rows="7" cols="40"></textarea>
+		<br>
+		<button (click)="addChapter()">Save</button>
+		<button (click)="closePopUp()">Abort</button>
+	</div>
+</div>

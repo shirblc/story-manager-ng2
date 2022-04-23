@@ -28,10 +28,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { ErrorPage } from './components/errorPage/errorPage.component';
 import { LibraryManager } from './components/libraryManager/libraryManager.component';
 import { StoryManager } from './components/storyManager/storyManager.component';
+import { StoryEditor } from './components/storyEdit/storyEdit.component';
 
 const routes: Routes = [
   { path: '', component: LibraryManager },
   { path: 'stories/:id', component: StoryManager },
+  { path: 'stories/:id/editor', component: StoryEditor },
   { path: '**', component: ErrorPage }
 ];
 

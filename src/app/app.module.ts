@@ -30,6 +30,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { ErrorPage } from './components/errorPage/errorPage.component';
 import { LibraryManager } from './components/libraryManager/libraryManager.component';
 import { StoryManager } from './components/storyManager/storyManager.component';
+import { StoryEditor } from './components/storyEdit/storyEdit.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { StoryManager } from './components/storyManager/storyManager.component';
     ErrorPage,
     LibraryManager,
     StoryManager,
+    StoryEditor,
   ],
   providers: [],
   bootstrap: [AppComponent]
