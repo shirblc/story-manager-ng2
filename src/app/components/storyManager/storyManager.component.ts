@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2020 Shir Bar Lev
+Copyright (c) 2022 Shir Bar Lev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,23 +22,27 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+/* Angular imports */
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { ErrorPage } from './components/errorPage/errorPage.component';
-import { LibraryManager } from './components/libraryManager/libraryManager.component';
-import { StoryManager } from './components/storyManager/storyManager.component';
+/* App-related imports */
+import { Story } from '../../interfaces/story.interface';
+import { LibrarianService } from '../../services/librarian.service';
 
-const routes: Routes = [
-  { path: '', component: LibraryManager },
-  { path: 'stories/:id', component: StoryManager },
-  { path: '**', component: ErrorPage }
-];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+@Component({
+  selector: 'story-manager',
+  templateUrl: './storyManager.component.html'
 })
-export class AppRoutingModule {
+export class StoryManager {
+  storyDetails: Story;
 
+  constructor(
+    public librarianService:LibrarianService,
+    public route: ActivatedRoute
+  ) {
+    let storyId = this.route.snapshot.paramMap.get("id") || 1;
+    this.storyDetails = this.librarianService.myStories[Number(storyId)-1];
+  }
 }

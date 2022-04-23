@@ -1,0 +1,33 @@
+<!-- storyMgr Template
+	Story Manager Template
+	Written by Shir Bar Lev  -->
+
+<!-- Navigation breadcrumb -->
+<nav>
+	<div id="breadcrumb"><a [routerLink]="/">Home</a> / Story {{ storyDetails.id }}</div>
+</nav>
+
+<!-- Story details section -->
+<div class="storyDetails">
+	<a ui-sref="edit({ id: story.storyID })" class="editLink">Edit</a>
+	<h2 class="storyTitle"> {{ storyDetails.title }} </h2>
+	<p class="storySynopsis"> {{ storyDetails.synopsis }} </p>
+	<!-- Chapters' section -->
+	<h3> The story so far... </h3>
+	<!-- If there are chapters in the array -->
+	<div class="chapters" *ngIf="storyDetails.chapters.length != 0">
+		<!-- A single chapter's details -->
+		<div class="chapterDetails" *ngFor="let chapter in storyDetails.chapters">
+			<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
+			<h4 class="chapterTitle"> {{ chapter.title }} </h4>
+			<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
+			<a ui-sref="editChapter({ id: story.storyID, chapterID: chapter.number })" class="editLink">Edit</a>
+		</div>
+	</div>
+	<!-- If there aren't any chapters in the array -->
+	<div id="noData" ng-if="storyDetails.chapters.length == 0">
+		<h3>There's nothing here!</h3>
+		<div>Create your first chapter through the edit panel.</div>
+		<div>Click the "edit" link above to open the panel.</div>
+	</div>
+</div>
