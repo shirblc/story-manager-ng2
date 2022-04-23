@@ -1,0 +1,37 @@
+<!-- libraryMgr Template
+	Story Manager Template
+	Written by Shir Bar Lev  -->
+
+<!-- Stories container -->
+<div>
+	<button id="addStory" class="controlBtn" (click)="openAdd()"><i class="fas fa-plus-circle"></i></button>
+	<!-- If there are stories in the array -->
+	<ul id="storiesContainer" *ngIf="librarianService.myStories.length != 0">
+		<!-- Single story container -->
+		<li class="storyContainer" *ngFor="let story in librarianService.myStories">
+			<h3 class="storyTitle"> {{ story.title }} </h3>
+			<p class="storySynopsis"> {{ story.synopsis }} </p>
+			<a [routerLink]="['/story', story.id]"> View Story </a>
+		</li>
+	</ul>
+	<!-- If there aren't any stories in the array -->
+	<div id="noData" *ngIf="librarianService.myStories.length == 0">
+		<h3>There's nothing here!</h3>
+		<div>Create your first story with the buttons above.</div>
+	</div>
+</div>
+
+<!-- Modal box and popups -->
+<div id="modalBox" class="off">
+	<!-- Add chapter popup -->
+	<div id="addPopUp" class="popup off">
+		<h3>Add Story</h3>
+		<span class="formTitle">Story Title:</span> <input type="text" value="" id="storyTitle">
+		<br>
+		<div class="formTitle">Story Synopsis:</div>
+		<textarea id="storySynopsis" rows="7" cols="40"></textarea>
+		<br>
+		<button (click)="addStory()">Save</button>
+		<button (click)="closePopUp()">Abort</button>
+	</div>
+</div>

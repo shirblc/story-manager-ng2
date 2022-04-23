@@ -28,6 +28,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { ErrorPage } from './components/errorPage/errorPage.component';
+import { LibraryManager } from './components/libraryManager/libraryManager.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ErrorPage } from './components/errorPage/errorPage.component';
   declarations: [
     AppComponent,
     ErrorPage,
+    LibraryManager,
   ],
   providers: [],
   bootstrap: [AppComponent]

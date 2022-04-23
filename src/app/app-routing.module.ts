@@ -26,8 +26,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ErrorPage } from './components/errorPage/errorPage.component';
+import { LibraryManager } from './components/libraryManager/libraryManager.component';
 
 const routes: Routes = [
+  { path: '', component: LibraryManager },
   { path: '**', component: ErrorPage }
 ];
 
