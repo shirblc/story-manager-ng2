@@ -80,7 +80,7 @@ function scripts()
       .pipe(buffer())
       .pipe(sourcemaps.init({loadMaps: true}))
 			.pipe(replace(/(templateUrl: '.)(.*)(.component.html)/g, (match) => {
-				let componentName = match.substring(15, match.length-15);
+				let componentName = match.substring(16, match.length-15);
 				let newString = `templateUrl: './app/${componentName}.component.html`
 				return newString;
 			}))
@@ -91,7 +91,7 @@ function scripts()
 }
 
 //watch files for changes and then run the appropriate tasks
-function watch()
+async function watch()
 {
 	gulp.watch("src/app/**/*.html", copyHtml)
 	gulp.watch("index.html", copyIndex);
@@ -173,7 +173,7 @@ function scriptsDist()
       .pipe(source("src/main.ts"))
       .pipe(buffer())
 			.pipe(replace(/(templateUrl: '.)(.*)(.component.html)/g, (match) => {
-						let componentName = match.substring(15, match.length-15);
+						let componentName = match.substring(16, match.length-15);
 						let newString = `templateUrl: './app/${componentName}.component.html`
 						return newString;
 					}))
