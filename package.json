@@ -64,6 +64,8 @@
     "@angular/platform-browser": "^13.3.4",
     "@angular/platform-browser-dynamic": "^13.3.4",
     "@angular/router": "^13.3.4",
+    "@fortawesome/angular-fontawesome": "^0.10.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "compression": "^1.7.4",
     "core-js": "^3.22.2",
     "dotenv": "^16.0.0",
