@@ -4,12 +4,12 @@
 
 <!-- Navigation breadcrumb -->
 <nav>
-	<div id="breadcrumb"><a [routerLink]="/">Home</a> / Story {{ storyDetails.id }}</div>
+	<div id="breadcrumb"><a [routerLink]="['/']">Home</a> / Story {{ storyDetails.id }}</div>
 </nav>
 
 <!-- Story details section -->
 <div class="storyDetails">
-	<a ui-sref="edit({ id: story.storyID })" class="editLink">Edit</a>
+	<a [routerLink]="['/stories', storyDetails.id, '/editor']" class="editLink">Edit</a>
 	<h2 class="storyTitle"> {{ storyDetails.title }} </h2>
 	<p class="storySynopsis"> {{ storyDetails.synopsis }} </p>
 	<!-- Chapters' section -->
@@ -21,7 +21,7 @@
 			<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
 			<h4 class="chapterTitle"> {{ chapter.title }} </h4>
 			<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
-			<a ui-sref="editChapter({ id: story.storyID, chapterID: chapter.number })" class="editLink">Edit</a>
+			<a [routerLink]="['/stories', storyDetails.id, 'chapters', chapter.number, 'editor']" class="editLink">Edit</a>
 		</div>
 	</div>
 	<!-- If there aren't any chapters in the array -->
