@@ -24,6 +24,7 @@ SOFTWARE.
 
 /* Angular imports */
 import { Component } from '@angular/core';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 /* App-related imports */
 import { Story } from '../../interfaces/story.interface';
@@ -37,6 +38,7 @@ import { LibrarianService } from '../../services/librarian.service';
 })
 export class LibraryManager {
   currentStory?: Story;
+  faCirclePlus = faCirclePlus;
 
   constructor(public librarianService:LibrarianService) {
 

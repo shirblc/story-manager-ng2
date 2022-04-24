@@ -22,15 +22,15 @@
 	<!-- Edit chapters section -->
 	<div id="chapters">
 		<h3 id="editTitle">Edit Chapters</h3>
-		<button id="addChapter" class="controlBtn" (click)="openAddPanel()"><i class="fas fa-plus-circle"></i></button>
-		<button id="removeChapters" class="controlBtn" (click)="openRemovePanel()"><i class="fas fa-minus-circle"></i></button>
-		<button id="deleteAll" class="controlBtn" (click)="openDeletePopup('all chapters')"><i class="fas fa-times-circle"></i></button>
+		<button id="addChapter" class="controlBtn" (click)="openAddPanel()"><fa-icon [icon]="faCirclePlus"></fa-icon></button>
+		<button id="removeChapters" class="controlBtn" (click)="openRemovePanel()"><fa-icon [icon]="faCircleMinus"></fa-icon></button>
+		<button id="deleteAll" class="controlBtn" (click)="openDeletePopup('all chapters')"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
 		<button id="doneBtn" class="controlBtn off" (click)="closeRemovePanel()">Finish editing</button>
 		<!-- Chapters' details -->
 		<!-- If there are chapters in the array -->
 		<div class="chapters" *ngIf="storyDetails.chapters.length != 0">
 			<div class="chapter" *ngFor="let chapter in storyDetails.chapters">
-				<button class="remove off" (click)="openDeletePopup('Chapter ' + chapter.number)"><i class="fas fa-times-circle"></i></button>
+				<button class="remove off" (click)="openDeletePopup('Chapter ' + chapter.number)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
 				<div class="chapterDetails">
 					<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
 					<h4 class="chapterTitle"> {{ chapter.title }} </h4>

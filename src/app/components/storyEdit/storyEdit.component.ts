@@ -25,6 +25,7 @@ SOFTWARE.
 /* Angular imports */
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { faCirclePlus, faCircleMinus, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 /* App-related imports */
 import { Story } from '../../interfaces/story.interface';
@@ -38,6 +39,9 @@ import { LibrarianService } from '../../services/librarian.service';
 export class StoryEditor {
   storyDetails: Story;
   toDelete: String = "";
+  faCirclePlus = faCirclePlus;
+  faCircleMinus = faCircleMinus;
+  faTimesCircle = faTimesCircle;
 
   constructor(
     public librarianService:LibrarianService,

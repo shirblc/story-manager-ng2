@@ -24,6 +24,7 @@ SOFTWARE.
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
@@ -38,7 +39,8 @@ import { Settings } from './components/settings/settings.component';
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule,
   ],
   declarations: [
     AppComponent,

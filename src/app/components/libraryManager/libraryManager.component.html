@@ -4,7 +4,7 @@
 
 <!-- Stories container -->
 <div>
-	<button id="addStory" class="controlBtn" (click)="openAdd()"><i class="fas fa-plus-circle"></i></button>
+	<button id="addStory" class="controlBtn" (click)="openAdd()"><fa-icon [icon]="faCirclePlus"></fa-icon></button>
 	<!-- If there are stories in the array -->
 	<ul id="storiesContainer" *ngIf="librarianService.myStories.length != 0">
 		<!-- Single story container -->
