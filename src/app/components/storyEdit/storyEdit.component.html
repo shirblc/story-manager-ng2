@@ -15,8 +15,8 @@
 		<div class="formTitle">Story Synopsis:</div>
 		<textarea id="storySynopsis" rows="5" cols="40">{{ storyDetails.synopsis }}</textarea>
 		<br>
-		<button (click)=changeDetails()">Save</button>
-		<button (click)="deleteItem(story.storyName)">Delete Story</button>
+		<button (click)="changeDetails()">Save</button>
+		<button (click)="deleteItem(storyDetails.title)">Delete Story</button>
 	</div>
 
 	<!-- Edit chapters section -->
@@ -35,7 +35,7 @@
 					<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
 					<h4 class="chapterTitle"> {{ chapter.title }} </h4>
 					<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
-					<a ui-sref="editChapter({ id: story.storyID, chapterID: chapter.number })">Edit</a>
+					<a [routerLink]="['/stories', storyDetails.id, 'chapters', chapter.number, 'editor']">Edit</a>
 				</div>
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 		<h3> {{ story.forDeletion }}?</h3>
 		<br>
 		<button (click)="deleteItem()">Delete</button>
-		<button (click)=closePopUp()">Abort</button>
+		<button (click)="closePopUp()">Abort</button>
 	</div>
 
 	<!-- Add chapter popup -->
