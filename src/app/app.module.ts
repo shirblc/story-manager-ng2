@@ -31,6 +31,7 @@ import { ErrorPage } from './components/errorPage/errorPage.component';
 import { LibraryManager } from './components/libraryManager/libraryManager.component';
 import { StoryManager } from './components/storyManager/storyManager.component';
 import { StoryEditor } from './components/storyEdit/storyEdit.component';
+import { ChapterEditor } from './components/chapterEdit/chapterEdit.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { StoryEditor } from './components/storyEdit/storyEdit.component';
     LibraryManager,
     StoryManager,
     StoryEditor,
+    ChapterEditor,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,58 @@
+<!-- chapterEdit Template
+	Story Manager Template
+	Written by Shir Bar Lev  -->
+
+<!-- Navigation breadcrumb -->
+<nav>
+	<div id="breadcrumb"><a [routerLink]="/">Home</a> / <a [routerLink]="['/story', storyId]">Story {{ storyId }}</a> / Edit</div>
+</nav>
+
+<!-- Story details section -->
+<div class="storyDetails">
+	<h2 class="storyTitle"> {{ storyDetails.title }} </h2>
+	<p class="storySynopsis"> {{ storyDetails.synopsis }} </p>
+	<!-- Chapters' section -->
+	<h3> Chapters:</h3>
+		<div class="chapterView">
+			<!-- A single chapter's details -->
+			<div class="chapterDetails" *ngFor="let chapter in storyDetails.chapters[0:chapterDetails.id-1]">
+				<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
+				<h4 class="chapterTitle"> {{ chapter.title }} </h4>
+				<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
+			</div>
+
+			<!-- Edit Chapter section -->
+			<!-- Edit the selected chapter -->
+			<div id="editChapter">
+				<h3>Edit Chapter Details</h3>
+				<span class="formTitle">Chapter Number:</span> <input type="text" value="{{ chapterDetails.number }}" id="chapterID">
+				<br>
+				<span class="formTitle">Chapter Title:</span> <input type="text" value="{{ chapterDetails.title }}" id="chapterTitle">
+				<br>
+				<div class="formTitle">Chapter Synopsis:</div>
+				<textarea id="chapterSynopsis" rows="7" cols="40">{{ chapterDetails.synopsis }}</textarea>
+				<br>
+				<button (click)="changeChapterDetails()">Save</button>
+				<button (click)="deleteItem()">Delete Chapter</button>
+			</div>
+
+			<!-- A single chapter's details -->
+			<div class="chapterDetails" *ngFor="let chapter in storyDetails.chapters[chapterDetails.id+1:storyDetails.chapters.length-1]">
+				<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
+				<h4 class="chapterTitle"> {{ chapter.title }} </h4>
+				<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
+			</div>
+		</div>
+</div>
+
+<!-- Modal box and popup -->
+<div id="modalBox" class="off">
+	<div id="deletePopUp" class="popup">
+		<p>You can't undo this action!</p>
+		<p>Are you sure you want to delete</p>
+		<h3> {{ story.forDeletion }}?</h3>
+		<br>
+		<button (click)="deleteChapter()">Delete</button>
+		<button (click)="closePopUp()">Abort</button>
+	</div>
+</div>

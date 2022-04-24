@@ -29,11 +29,13 @@ import { ErrorPage } from './components/errorPage/errorPage.component';
 import { LibraryManager } from './components/libraryManager/libraryManager.component';
 import { StoryManager } from './components/storyManager/storyManager.component';
 import { StoryEditor } from './components/storyEdit/storyEdit.component';
+import { ChapterEditor } from './components/chapterEdit/chapterEdit.component';
 
 const routes: Routes = [
   { path: '', component: LibraryManager },
   { path: 'stories/:id', component: StoryManager },
   { path: 'stories/:id/editor', component: StoryEditor },
+  { path: 'stories/:id/chapters/:chapterId/editor', component: ChapterEditor },
   { path: '**', component: ErrorPage }
 ];
 
