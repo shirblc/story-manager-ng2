@@ -17,7 +17,7 @@
 	<!-- If there are chapters in the array -->
 	<div class="chapters" *ngIf="storyDetails.chapters.length != 0">
 		<!-- A single chapter's details -->
-		<div class="chapterDetails" *ngFor="let chapter in storyDetails.chapters">
+		<div class="chapterDetails" *ngFor="let chapter of storyDetails.chapters">
 			<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
 			<h4 class="chapterTitle"> {{ chapter.title }} </h4>
 			<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>

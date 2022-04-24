@@ -29,7 +29,7 @@
 		<!-- Chapters' details -->
 		<!-- If there are chapters in the array -->
 		<div class="chapters" *ngIf="storyDetails.chapters.length != 0">
-			<div class="chapter" *ngFor="let chapter in storyDetails.chapters">
+			<div class="chapter" *ngFor="let chapter of storyDetails.chapters">
 				<button class="remove off" (click)="openDeletePopup('Chapter ' + chapter.number)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
 				<div class="chapterDetails">
 					<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>

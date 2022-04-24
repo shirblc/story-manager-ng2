@@ -15,7 +15,7 @@
 	<h3> Chapters:</h3>
 		<div class="chapterView">
 			<!-- A single chapter's details -->
-			<div class="chapterDetails" *ngFor="let chapter in storyDetails.chapters.slice(0,chapterDetails.id-1)">
+			<div class="chapterDetails" *ngFor="let chapter of storyDetails.chapters.slice(0,chapterDetails.id-1)">
 				<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
 				<h4 class="chapterTitle"> {{ chapter.title }} </h4>
 				<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
@@ -37,7 +37,7 @@
 			</div>
 
 			<!-- A single chapter's details -->
-			<div class="chapterDetails" *ngFor="let chapter in storyDetails.chapters.slice(chapterDetails.id+1,storyDetails.chapters.length-1)">
+			<div class="chapterDetails" *ngFor="let chapter of storyDetails.chapters.slice(chapterDetails.id+1,storyDetails.chapters.length-1)">
 				<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
 				<h4 class="chapterTitle"> {{ chapter.title }} </h4>
 				<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>

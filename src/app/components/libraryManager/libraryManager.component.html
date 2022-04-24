@@ -8,7 +8,7 @@
 	<!-- If there are stories in the array -->
 	<ul id="storiesContainer" *ngIf="librarianService.myStories.length != 0">
 		<!-- Single story container -->
-		<li class="storyContainer" *ngFor="let story in librarianService.myStories">
+		<li class="storyContainer" *ngFor="let story of librarianService.myStories">
 			<h3 class="storyTitle"> {{ story.title }} </h3>
 			<p class="storySynopsis"> {{ story.synopsis }} </p>
 			<a [routerLink]="['/story', story.id]"> View Story </a>
