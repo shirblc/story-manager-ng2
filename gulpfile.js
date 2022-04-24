@@ -57,6 +57,14 @@ function styles()
 		.pipe(gulp.dest("./localdev/css"));
 }
 
+//copies the fonts to the distribution folder
+function copyFonts()
+{
+	return gulp
+		.src("src/css/*.ttf")
+		.pipe(gulp.dest("./localdev/css"));
+}
+
 //deals with transforming the scripts while in development mode
 function scripts()
 {
@@ -97,6 +105,7 @@ async function watch()
 	gulp.watch("index.html", copyIndex);
 	gulp.watch("src/assets/img/*", copyImgs);
 	gulp.watch("src/css/*.css", styles);
+	gulp.watch('src/css/*.ttf', copyFonts);
 	gulp.watch("src/**/*.ts", scripts);
 }
 
@@ -106,6 +115,7 @@ gulp.task('localDev', gulp.parallel(
 	copyIndex,
 	copyImgs,
 	styles,
+	copyFonts,
 	scripts
 ));
 
@@ -150,6 +160,14 @@ function stylesDist()
 		.pipe(gulp.dest("./dist/css"));
 }
 
+//copies the fonts to the distribution folder
+function copyFontsDist()
+{
+	return gulp
+		.src("src/css/*.ttf")
+		.pipe(gulp.dest("./dist/css"));
+}
+
 //deals with transforming and bundling the scripts while in production mode
 function scriptsDist()
 {
@@ -188,6 +206,7 @@ gulp.task('dist', gulp.parallel(
 	copyIndexDist,
 	copyImgsDist,
 	stylesDist,
+	copyFontsDist,
 	scriptsDist
 ));
 
