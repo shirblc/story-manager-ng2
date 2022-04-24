@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2020 Shir Bar Lev
+Copyright (c) 2022 Shir Bar Lev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,36 +22,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser'
-
-import { AppComponent } from './app.component'
-import { AppRoutingModule } from './app-routing.module'
-import { ErrorPage } from './components/errorPage/errorPage.component';
-import { LibraryManager } from './components/libraryManager/libraryManager.component';
-import { StoryManager } from './components/storyManager/storyManager.component';
-import { StoryEditor } from './components/storyEdit/storyEdit.component';
-import { ChapterEditor } from './components/chapterEdit/chapterEdit.component';
-import { Settings } from './components/settings/settings.component';
+/* Angular imports */
+import { Component } from '@angular/core';
 
 
-@NgModule({
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  declarations: [
-    AppComponent,
-    ErrorPage,
-    LibraryManager,
-    StoryManager,
-    StoryEditor,
-    ChapterEditor,
-    Settings,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+@Component({
+  selector: 'library-manager',
+  templateUrl: './libraryManager.component.html'
 })
-export class AppModule {
+export class Settings {
+  storyView: 'chapters' | 'plot-lines' = 'chapters';
+  selectedValue: 'chapters' | 'plot-lines' = 'chapters';
 
+  constructor() {
+
+  }
+
+  // sets the selected value
+  setSelected(selected: 'chapters' | 'plot-lines') {
+    this.selectedValue = selected;
+  }
+
+  // sets the new story view
+  setStoryView() {
+    this.storyView = this.selectedValue;
+  }
 }

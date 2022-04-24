@@ -30,12 +30,14 @@ import { LibraryManager } from './components/libraryManager/libraryManager.compo
 import { StoryManager } from './components/storyManager/storyManager.component';
 import { StoryEditor } from './components/storyEdit/storyEdit.component';
 import { ChapterEditor } from './components/chapterEdit/chapterEdit.component';
+import { Settings } from './components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: LibraryManager },
   { path: 'stories/:id', component: StoryManager },
   { path: 'stories/:id/editor', component: StoryEditor },
   { path: 'stories/:id/chapters/:chapterId/editor', component: ChapterEditor },
+  { path: 'settings', component: Settings },
   { path: '**', component: ErrorPage }
 ];
 

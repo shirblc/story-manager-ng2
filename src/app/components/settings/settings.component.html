@@ -1,0 +1,18 @@
+<!-- settings Template
+	Story Manager Template
+	Written by Shir Bar Lev  -->
+
+<div id="">
+	<h2>Settings</h2>
+	<div id="">
+		<h3>View</h3>
+		<radiogroup>
+			<input type="radio" name="viewType" value="chapters" id="chaptersView" (click)="setSelected($event.target.value)" />
+			<label for="chaptersView">View by chapters</label>
+			<input type="radio" name="viewType" value="plot-lines" id="plotsView" (click)="setSelected($event.target.value)"  />
+			<label for="plotsView">View by plot-lines</label>
+		</radiogroup>
+	</div>
+
+	<button (click)="">Save</button>
+</div>
