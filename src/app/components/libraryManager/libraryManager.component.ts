@@ -66,7 +66,7 @@ export class LibraryManager {
   */
   addStory() {
     let newStory = {
-      "id": this.librarianService.myStories.length,
+      "id": this.librarianService.myStories.length + 1,
       "title": (document.getElementById("storyTitle") as HTMLInputElement).value,
       "synopsis": (document.getElementById("storySynopsis") as HTMLInputElement).value,
       "chapters": [] as Chapter[],

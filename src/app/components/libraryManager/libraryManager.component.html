@@ -11,7 +11,7 @@
 		<li class="storyContainer" *ngFor="let story of librarianService.myStories">
 			<h3 class="storyTitle"> {{ story.title }} </h3>
 			<p class="storySynopsis"> {{ story.synopsis }} </p>
-			<a [routerLink]="['/story', story.id]"> View Story </a>
+			<a [routerLink]="['/stories', story.id]"> View Story </a>
 		</li>
 	</ul>
 	<!-- If there aren't any stories in the array -->
