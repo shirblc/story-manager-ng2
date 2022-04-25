@@ -49,7 +49,7 @@ export class ChapterEditor {
     this.storyId = Number(this.route.snapshot.paramMap.get("id")) || 1;
     let chapterId = this.route.snapshot.paramMap.get("chapterId") || 1;
     this.storyDetails = this.librarianService.myStories[this.storyId-1];
-    this.chapterDetails = this.storyDetails.chapters[Number(chapterId)];
+    this.chapterDetails = this.storyDetails.chapters[Number(chapterId)-1];
   }
 
   /*
@@ -94,7 +94,7 @@ export class ChapterEditor {
     }
 
     this.librarianService.editStory(this.storyDetails, this.storyDetails.id);
-    this.router.navigate(['/story', this.storyId]);
+    this.router.navigate(['/stories', this.storyId]);
   }
 
   /*

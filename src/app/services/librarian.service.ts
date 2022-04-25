@@ -103,7 +103,7 @@ export class LibrarianService {
     // make sure the user isn't trying to change the ID
     if(storyId != story.id) return;
 
-    this.myStories[storyId] = story;
+    this.myStories[storyId-1] = story;
   }
 
   // CHAPTER METHODS

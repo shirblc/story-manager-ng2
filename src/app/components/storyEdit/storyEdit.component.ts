@@ -24,7 +24,7 @@ SOFTWARE.
 
 /* Angular imports */
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faCirclePlus, faCircleMinus, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 /* App-related imports */
@@ -45,7 +45,8 @@ export class StoryEditor {
 
   constructor(
     public librarianService:LibrarianService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    private router: Router
   ) {
     let storyId = this.route.snapshot.paramMap.get("id") || 1;
     this.storyDetails = this.librarianService.myStories[Number(storyId)-1];
@@ -62,6 +63,7 @@ export class StoryEditor {
     this.storyDetails.title = (document.getElementById("storyTitle") as HTMLInputElement).value;
     this.storyDetails.synopsis = (document.getElementById("storySynopsis") as HTMLInputElement).value;
     this.librarianService.editStory(this.storyDetails, this.storyDetails.id);
+    this.router.navigate(['/stories', this.storyDetails.id]);
   }
 
   /*
