@@ -98,6 +98,13 @@ function scripts()
       .pipe(gulp.dest("./localdev"));
 }
 
+function copyServiceWorker()
+{
+	return gulp
+		.src("src/sw.js")
+		.pipe(gulp.dest("./localdev"));
+}
+
 //watch files for changes and then run the appropriate tasks
 async function watch()
 {
@@ -107,6 +114,7 @@ async function watch()
 	gulp.watch("src/css/*.css", styles);
 	gulp.watch('src/css/*.ttf', copyFonts);
 	gulp.watch("src/**/*.ts", scripts);
+	gulp.watch("src/sw.js", copyServiceWorker);
 }
 
 //prepare for local development
@@ -116,7 +124,8 @@ gulp.task('localDev', gulp.parallel(
 	copyImgs,
 	styles,
 	copyFonts,
-	scripts
+	scripts,
+	copyServiceWorker,
 ));
 
 // PRODUCTION TASKS
@@ -200,6 +209,13 @@ function scriptsDist()
       .pipe(gulp.dest("./dist"));
 }
 
+function copyServiceWorkerDist()
+{
+	return gulp
+		.src("src/sw.js")
+		.pipe(gulp.dest("./dist"));
+}
+
 //prepare for distribution
 gulp.task('dist', gulp.parallel(
 	copyHtmlDist,
@@ -207,7 +223,8 @@ gulp.task('dist', gulp.parallel(
 	copyImgsDist,
 	stylesDist,
 	copyFontsDist,
-	scriptsDist
+	scriptsDist,
+	copyServiceWorkerDist,
 ));
 
 // TESTING TASKS
