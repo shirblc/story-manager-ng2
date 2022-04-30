@@ -29,6 +29,7 @@
 
 // Angular imports
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 // App-related imports
 import { Story } from '../interfaces/story.interface';
@@ -41,7 +42,7 @@ export class LibrarianService {
   myStories: Story[] = []
   private currentlySelectedStory: number = 0;
 
-  constructor() {
+  constructor(private Http:HttpClient,) {
 
   }
 
@@ -78,6 +79,7 @@ export class LibrarianService {
   */
   addStory(story: Story) {
     this.myStories.push(story);
+    this.postToCache();
   }
 
   /*
@@ -89,6 +91,7 @@ export class LibrarianService {
   */
   deleteStory(storyId: number) {
     this.myStories = this.myStories.filter((story) => story.id != storyId);
+    this.postToCache();
   }
 
   /*
@@ -117,6 +120,7 @@ export class LibrarianService {
   */
   addChapter(chapter: Chapter) {
     this.myStories[this.currentlySelectedStory].chapters.push(chapter);
+    this.postToCache();
   }
 
   /*
@@ -128,6 +132,7 @@ export class LibrarianService {
   */
   deleteChapter(chapterNumber: number) {
     this.myStories[this.currentlySelectedStory].chapters.splice(chapterNumber-1, 1);
+    this.postToCache();
   }
 
   /*
@@ -140,5 +145,33 @@ export class LibrarianService {
   */
   editChapter(chapter: Chapter, chapterNum: number) {
     this.myStories[this.currentlySelectedStory].chapters[chapterNum-1] = chapter;
+    this.postToCache();
+  }
+
+  /*
+  Function Name: postToCache()
+  Function Description: Sends the updated stories object to the Service Worker so they
+            can be cached.
+  Parameters: None.
+  ----------------
+  Programmer: Shir Bar Lev.
+  */
+  postToCache() {
+    navigator.serviceWorker.controller?.postMessage(this.myStories);
+  }
+
+  /*
+  Function Name: getFromCache()
+  Function Description: Gets the updated stories object from the Service Worker's cache.
+  Parameters: None.
+  ----------------
+  Programmer: Shir Bar Lev.
+  */
+  getFromCache() {
+    this.Http.get('/data/stories.json', {}).subscribe((response: any) => {
+      this.myStories = response;
+    }, (err: HttpErrorResponse) => {
+      console.log(err);
+    });
   }
 }

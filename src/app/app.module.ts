@@ -26,6 +26,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
@@ -43,6 +44,7 @@ import { Settings } from './components/settings/settings.component';
     AppRoutingModule,
     FontAwesomeModule,
     ServiceWorkerModule.register('sw.js'),
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
