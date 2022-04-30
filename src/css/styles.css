@@ -1,2 +1,241 @@
-@font-face{font-family:"noteworthy";src:url("Noteworthy-Lt.ttf")}#titleSample,#editStory>h3,#addPopUp h3{font-family:noteworthy;width:100%;text-align:center}#buttonSample,#editStory button,.controlBtn,#editChapter button,#deletePopUp button,#addPopUp button{text-align:center;background-color:#D7DAFF;font-family:noteworthy}#linkSample,.storyContainer a,.chapterDetails a,.storyDetails .editLink,.chapterDetails .editLink,#storyEdit .chapters a,#storyEdit .chapterView a{font-family:noteworthy;background-color:#D7DAFF;text-align:center;display:block;border:thin solid #000}img,picture,video,embed,textarea,textfield{max-width:100%}body{top:0;right:0;left:0;padding:0;margin:0}#mainTitle{text-align:center;font-family:noteworthy;font-size:24px;background-color:#031863;color:#FFFEF2;padding:10px;margin:0 0 10px;top:0;right:0;left:0;position:sticky;display:block}#storiesContainer{list-style-type:none;display:flex;flex-wrap:wrap;padding:0 15px}.storyContainer,.chapterDetails{border:thin solid #000;padding:10px 20px;margin:15px 10px;border-radius:4px;background-color:#FFFEF2}.storyTitle{font-family:noteworthy;text-align:center;padding-top:0;margin-top:0}.storySynopsis{font-family:noteworthy;text-align:center;padding-bottom:10px}.storyContainer a,.chapterDetails a{padding:3px 10px;margin:2px 0}#storiesContainer>div{width:100%}#breadcrumb{font-family:noteworthy;font-size:16px}.storyDetails{display:flex;flex-wrap:wrap;align-content:center;justify-content:center;align-items:center;width:100%}.storyDetails .storyTitle{order:0;display:block;width:85%;font-size:30px;padding:15px 0 10px 2%}.storyDetails .storySynopsis{order:2;display:block;width:100%;font-size:20px;padding:0;margin:0}.storyDetails .editLink{order:1;font-size:20px;padding:5px;margin:0}.storyDetails h3{order:3;font-family:noteworthy;font-size:24px;padding-top:.5em;width:100%;text-align:center}.chapters,.chapterView{order:4;width:100%;display:flex;flex-wrap:wrap}.chapterDetails{display:flex;flex-direction:column;margin:15px 10px}.chapterTitle{font-family:noteworthy;font-size:20px;text-align:center;margin:0}.chapterSynopsis{font-family:noteworthy;font-size:18px}.chapterDetails .editLink{padding:6px 8px}#editStory>h3{padding-bottom:5px;font-size:24px}#editStory .formTitle{font-family:noteworthy;padding:5px;font-size:18px}input,textarea{font-family:noteworthy;line-height:1.2em;font-size:14px}input{height:30px}#editStory button{font-size:20px;margin:10px}#storyEdit #chapters{display:flex;flex-wrap:wrap;align-content:center;justify-content:center}#editTitle{font-family:noteworthy;padding:5px;font-size:24px;text-align:center;width:100%;margin-bottom:0}.controlBtn{padding:5px;margin:5px}.controlBtn .fas{font-size:18px;margin:5px}.chapters,.chapterView{display:flex;flex-wrap:wrap;align-content:center;justify-content:center;margin-top:10px}#doneBtn{padding:5px;margin:5px 40%;font-size:18px}.controlBtn.off{height:1px}.controlBtn.on{height:auto}.remove{text-align:center;background:transparent;border-color:transparent;padding:5px;width:40px;position:relative;margin-bottom:0;top:35px;left:10px}.remove.off{height:1px}.remove.on{height:auto}.remove .fas{font-size:18px;margin:5px}.chapters .chapterDetails,.chapterView .chapterDetails{margin-top:0}#storyEdit .chapters a,#storyEdit .chapterView a{font-size:20px;margin:10px}.storyDetails h3{padding-bottom:0;margin-bottom:20px}.chapterView{margin-top:0;padding-top:0;align-items:center}#editChapter{border:thin solid #000;border-radius:4px;background-color:#FFFEF2;padding:10px;margin:15px 5px}#editChapter h3{padding-top:0;margin-top:0}#editChapter .formTitle{font-family:noteworthy;padding:10px 5px;font-size:18px}#editChapter input,textarea{font-family:noteworthy;line-height:1.2em;font-size:14px}#editChapter input{margin:5px}#editChapter button{font-size:18px;margin:10px;padding:5px}#modalBox{display:block;height:100%;width:100%;background-color:rgba(0,0,0,0.6);position:fixed;left:0;top:0}.off{visibility:hidden}.on{visibility:visible}.popup{background-color:#fff;box-shadow:12px 15px 20px 0 rgba(46,61,73,0.5);border-radius:5px;width:70%;text-align:center;margin-left:auto;margin-right:auto;margin-top:100px;padding:10px;position:fixed;top:100px;left:15%}#deletePopUp p{font-family:noteworthy;font-size:18px}#deletePopUp h3{font-family:noteworthy;font-size:22px;margin-bottom:0}#deletePopUp button{font-size:18px;padding:7px;margin:7px}#addPopUp h3{font-size:20px}#addPopUp span,#addPopUp div{font-family:noteworthy;font-size:18px}#addPopUp input,#addPopUp textarea{font-family:noteworthy;line-height:1.2em;font-size:14px;margin:5px}#addPopUp button{font-size:18px;margin:7px;padding:7px}@media (max-width: 360px){.storyDetails .storyTitle{padding:15px 0 10px;width:75%}.storyDetails .editLink{margin:5px}}@media (min-width: 400px){.storyDetails .storyTitle{padding-left:3%}}@media (min-width: 440px){.storyDetails .storyTitle{padding-left:4%}}@media (min-width: 470px){.storyDetails .storyTitle{padding-left:5%}}@media (min-width: 500px){.storyDetails .storyTitle{padding-left:6%}}@media (min-width: 570px){.storyDetails .storyTitle{padding-left:7%}}@media (min-width: 640px){.storyDetails .storyTitle{padding:15px 0 10px 8%}.storyDetails .editLink{padding:5px;margin:auto}}
+@font-face { font-family: "noteworthy"; src: url("Noteworthy-Lt.ttf"); }
+/* Font size mixin */
+/* line 15, ../sass/styles.sass */
+#titleSample, #editStory > h3, #addPopUp h3 { font-family: noteworthy; width: 100%; text-align: center; }
+
+/* line 21, ../sass/styles.sass */
+#buttonSample, #editStory button, .controlBtn, #editChapter button, #deletePopUp button, #addPopUp button { text-align: center; background-color: #D7DAFF; font-family: noteworthy; }
+
+/* line 27, ../sass/styles.sass */
+#linkSample, .storyContainer a, .chapterDetails a, .storyDetails .editLink, .chapterDetails .editLink, #storyEdit .chapters a, #storyEdit .chapterView a { font-family: noteworthy; background-color: #D7DAFF; text-align: center; display: block; border: thin solid #000000; }
+
+/* =================== General Styling =================== */
+/* line 35, ../sass/styles.sass */
+img, picture, video, embed, textarea, textfield { max-width: 100%; }
+
+/* line 38, ../sass/styles.sass */
+body { top: 0; right: 0; left: 0; padding: 0; margin: 0; }
+
+/* line 46, ../sass/styles.sass */
+#mainTitle { text-align: center; font-family: noteworthy; font-size: 24px; background-color: #031863; color: #FFFEF2; padding: 10px; margin: 0 0 10px; top: 0; right: 0; left: 0; position: sticky; display: block; }
+
+/* =================== Library View =================== */
+/* line 62, ../sass/styles.sass */
+#storiesContainer { list-style-type: none; display: flex; flex-wrap: wrap; padding: 0 15px; }
+
+/* line 69, ../sass/styles.sass */
+.storyContainer, .chapterDetails { border: thin solid #000000; padding: 10px 20px; margin: 15px 10px; border-radius: 4px; background-color: #FFFEF2; }
+
+/* line 77, ../sass/styles.sass */
+.storyTitle { font-family: noteworthy; text-align: center; padding-top: 0; margin-top: 0; }
+
+/* line 84, ../sass/styles.sass */
+.storySynopsis { font-family: noteworthy; text-align: center; padding-bottom: 10px; }
+
+/* line 90, ../sass/styles.sass */
+.storyContainer a, .chapterDetails a { padding: 3px 10px; margin: 2px 0; }
+
+/* =================== Story View =================== */
+/* line 97, ../sass/styles.sass */
+#storiesContainer > div { width: 100%; }
+
+/* line 100, ../sass/styles.sass */
+#breadcrumb { font-family: noteworthy; font-size: 16px; }
+
+/* line 105, ../sass/styles.sass */
+.storyDetails { display: flex; flex-wrap: wrap; align-content: center; justify-content: center; align-items: center; width: 100%; }
+
+/* line 114, ../sass/styles.sass */
+.storyDetails .storyTitle { order: 0; display: block; width: 85%; font-size: 30px; padding: 15px 0 10px 2%; }
+
+/* line 122, ../sass/styles.sass */
+.storyDetails .storySynopsis { order: 2; display: block; width: 100%; font-size: 20px; padding: 0; margin: 0; }
+
+/* line 131, ../sass/styles.sass */
+.storyDetails .editLink { order: 1; font-size: 20px; padding: 5px; margin: 0; }
+
+/* line 139, ../sass/styles.sass */
+.storyDetails h3 { order: 3; font-family: noteworthy; font-size: 24px; padding-top: 0.5em; width: 100%; text-align: center; }
+
+/* line 148, ../sass/styles.sass */
+.chapters, .chapterView { order: 4; width: 100%; display: flex; flex-wrap: wrap; }
+
+/* line 155, ../sass/styles.sass */
+.chapterDetails { display: flex; flex-direction: column; margin: 15px 10px; }
+
+/* line 162, ../sass/styles.sass */
+.chapterTitle { font-family: noteworthy; font-size: 20px; text-align: center; margin: 0; }
+
+/* line 169, ../sass/styles.sass */
+.chapterSynopsis { font-family: noteworthy; font-size: 18px; }
+
+/* line 174, ../sass/styles.sass */
+.chapterDetails .editLink { padding: 6px 8px; }
+
+/* =================== Edit Story View =================== */
+/* line 180, ../sass/styles.sass */
+#editStory > h3 { padding-bottom: 5px; font-size: 24px; }
+
+/* line 186, ../sass/styles.sass */
+#editStory .formTitle { font-family: noteworthy; padding: 5px; font-size: 18px; }
+
+/* line 192, ../sass/styles.sass */
+input, textarea { font-family: noteworthy; line-height: 1.2em; font-size: 14px; }
+
+/* line 198, ../sass/styles.sass */
+input { height: 30px; }
+
+/* line 202, ../sass/styles.sass */
+#editStory button { font-size: 20px; margin: 10px; }
+
+/* line 208, ../sass/styles.sass */
+#storyEdit #chapters { display: flex; flex-wrap: wrap; align-content: center; justify-content: center; }
+
+/* line 215, ../sass/styles.sass */
+#editTitle { font-family: noteworthy; padding: 5px; font-size: 24px; text-align: center; width: 100%; margin-bottom: 0; }
+
+/* line 224, ../sass/styles.sass */
+.controlBtn { padding: 5px; margin: 5px; }
+
+/* line 230, ../sass/styles.sass */
+.controlBtn .fas { font-size: 18px; margin: 5px; }
+
+/* line 235, ../sass/styles.sass */
+.chapters, .chapterView { display: flex; flex-wrap: wrap; align-content: center; justify-content: center; margin-top: 10px; }
+
+/* line 243, ../sass/styles.sass */
+#doneBtn { padding: 5px; margin: 5px 40%; font-size: 18px; }
+
+/* line 249, ../sass/styles.sass */
+.controlBtn.off { height: 1px; }
+
+/* line 253, ../sass/styles.sass */
+.controlBtn.on { height: auto; }
+
+/* line 257, ../sass/styles.sass */
+.remove { text-align: center; background: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0); padding: 5px; width: 40px; position: relative; margin-bottom: 0; top: 35px; left: 10px; }
+
+/* line 269, ../sass/styles.sass */
+.remove.off { height: 1px; }
+
+/* line 273, ../sass/styles.sass */
+.remove.on { height: auto; }
+
+/* line 277, ../sass/styles.sass */
+.remove .fas { font-size: 18px; margin: 5px; }
+
+/* line 282, ../sass/styles.sass */
+.chapters .chapterDetails, .chapterView .chapterDetails { margin-top: 0; }
+
+/* line 286, ../sass/styles.sass */
+#storyEdit .chapters a, #storyEdit .chapterView a { font-size: 20px; margin: 10px; }
+
+/* =================== Edit Chapter View =================== */
+/* line 293, ../sass/styles.sass */
+.storyDetails h3 { padding-bottom: 0; margin-bottom: 20px; }
+
+/* line 298, ../sass/styles.sass */
+.chapterView { margin-top: 0; padding-top: 0; align-items: center; }
+
+/* line 305, ../sass/styles.sass */
+#editChapter { border: thin solid #000000; border-radius: 4px; background-color: #FFFEF2; padding: 10px; margin: 15px 5px; }
+
+/* line 313, ../sass/styles.sass */
+#editChapter h3 { padding-top: 0; margin-top: 0; }
+
+/* line 318, ../sass/styles.sass */
+#editChapter .formTitle { font-family: noteworthy; padding: 10px 5px; font-size: 18px; }
+
+/* line 324, ../sass/styles.sass */
+#editChapter input, textarea { font-family: noteworthy; line-height: 1.2em; font-size: 14px; }
+
+/* line 330, ../sass/styles.sass */
+#editChapter input { margin: 5px; }
+
+/* line 334, ../sass/styles.sass */
+#editChapter button { font-size: 18px; margin: 10px; padding: 5px; }
+
+/* =================== Popups =================== */
+/* line 342, ../sass/styles.sass */
+#modalBox { display: block; height: 100%; width: 100%; background-color: rgba(0, 0, 0, 0.6); position: fixed; left: 0; top: 0; }
+
+/* line 352, ../sass/styles.sass */
+.off { visibility: hidden; }
+
+/* line 356, ../sass/styles.sass */
+.on { visibility: visible; }
+
+/* line 360, ../sass/styles.sass */
+.popup { background-color: #FFFFFF; box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5); border-radius: 5px; width: 70%; text-align: center; margin-left: auto; margin-right: auto; margin-top: 100px; padding: 10px; position: fixed; top: 100px; left: 15%; }
+
+/* line 375, ../sass/styles.sass */
+#deletePopUp p { font-family: noteworthy; font-size: 18px; }
+
+/* line 380, ../sass/styles.sass */
+#deletePopUp h3 { font-family: noteworthy; font-size: 22px; margin-bottom: 0; }
+
+/* line 386, ../sass/styles.sass */
+#deletePopUp button { font-size: 18px; padding: 7px; margin: 7px; }
+
+/* line 393, ../sass/styles.sass */
+#addPopUp h3 { font-size: 20px; }
+
+/* line 398, ../sass/styles.sass */
+#addPopUp span, #addPopUp div { font-family: noteworthy; font-size: 18px; }
+
+/* line 403, ../sass/styles.sass */
+#addPopUp input, #addPopUp textarea { font-family: noteworthy; line-height: 1.2em; font-size: 14px; margin: 5px; }
+
+/* line 410, ../sass/styles.sass */
+#addPopUp button { font-size: 18px; margin: 7px; padding: 7px; }
+
+/* =================== Responsive Styling =================== */
+@media (max-width: 360px) { /* =================== Story View =================== */
+  /* line 421, ../sass/styles.sass */
+  .storyDetails .storyTitle { padding: 15px 0 10px; width: 75%; }
+  /* line 426, ../sass/styles.sass */
+  .storyDetails .editLink { margin: 5px; } }
+@media (min-width: 400px) { /* =================== Story View =================== */
+  /* line 433, ../sass/styles.sass */
+  .storyDetails .storyTitle { padding-left: 3%; } }
+@media (min-width: 440px) { /* =================== Story View =================== */
+  /* line 440, ../sass/styles.sass */
+  .storyDetails .storyTitle { padding-left: 4%; } }
+@media (min-width: 470px) { /* =================== Story View =================== */
+  /* line 447, ../sass/styles.sass */
+  .storyDetails .storyTitle { padding-left: 5%; } }
+@media (min-width: 500px) { /* =================== Story View =================== */
+  /* line 454, ../sass/styles.sass */
+  .storyDetails .storyTitle { padding-left: 6%; } }
+@media (min-width: 570px) { /* =================== Story View =================== */
+  /* line 461, ../sass/styles.sass */
+  .storyDetails .storyTitle { padding-left: 7%; } }
+@media (min-width: 640px) { /* =================== Story View =================== */
+  /* line 469, ../sass/styles.sass */
+  .storyDetails .storyTitle { padding: 15px 0 10px 8%; }
+  /* line 473, ../sass/styles.sass */
+  .storyDetails .editLink { padding: 5px; margin: auto; } }
+/* =================== Alert Styling =================== */
+/* Base Alert */
+/* line 479, ../sass/styles.sass */
+.alertMessage { width: 70%; box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5); border-radius: 5px; text-align: center; padding: 10px; position: fixed; bottom: 50px; left: 0; right: 0; margin-right: 15%; margin-left: 15%; z-index: 100; /* Responsive design for screens above 500px width */ }
+@media screen and (min-width: 700px) { /* line 479, ../sass/styles.sass */
+  .alertMessage { width: 500px; margin: 10px Calc((100% - 500px) / 2); } }
+
+/* Alert icon */
+/* line 498, ../sass/styles.sass */
+.alertIcon { font-size: 1.5rem; padding-top: 10px; }
+
+/* Alert Title */
+/* line 503, ../sass/styles.sass */
+.alertType { margin: 0; padding: 5px; font-family: noteworthy; }
+
+/* Alert Text */
+/* line 509, ../sass/styles.sass */
+.alertText { font-size: 1rem; font-family: noteworthy; padding: 10px; }
+
+/* Alert Button */
+/* line 515, ../sass/styles.sass */
+.alertMessage button { font-size: 1rem; margin: 10px; border-radius: 5px; text-decoration: none; padding-top: 8px; padding-bottom: 8px; }
+
 /*# sourceMappingURL=styles.css.map */

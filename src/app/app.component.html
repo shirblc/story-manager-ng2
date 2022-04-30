@@ -7,5 +7,10 @@
 </main>
 
 <footer>
-
+	<div class="alertMessage off" role="alert">
+	  <h3 class="alertType">{{ alert.title }}</h3>
+	  <div class="alertText">{{ alert.text }}</div>
+	  <button (click)="toggleAlert(false, '', '', false)">Close</button>
+	  <button *ngIf="alert.isServiceWorkerAlert" (click)="skipWaiting()">Reload Page</button>
+	</div>
 </footer>
