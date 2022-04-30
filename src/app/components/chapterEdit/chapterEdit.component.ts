@@ -119,6 +119,7 @@ export class ChapterEditor {
   */
   deleteChapter() {
     this.librarianService.deleteChapter(this.chapterDetails.number);
+    this.closePopUp();
   }
 
   /*
