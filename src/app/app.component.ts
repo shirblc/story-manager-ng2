@@ -187,7 +187,11 @@ export class AppComponent implements OnInit {
 
     if(turnAlertOn) {
       document.querySelector('.alertMessage')!.classList.remove("off");
+      document.querySelector('.alertMessage')!.classList.remove("off");
+      document.querySelector('.alertMessage')!.classList.add("on");
     } else {
+      document.querySelector('.alertMessage')!.classList.add("off");
+      document.querySelector('.alertMessage')!.classList.remove("on");
       document.querySelector('.alertMessage')!.classList.add("off");
     }
   }

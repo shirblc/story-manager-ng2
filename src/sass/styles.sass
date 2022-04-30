@@ -479,6 +479,7 @@ input
 .alertMessage
 	width: 70%
 	box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5)
+	background-color: #D7DAFF
 	border-radius: 5px
 	text-align: center
 	padding: 10px
@@ -513,7 +514,9 @@ input
 
 /* Alert Button */
 .alertMessage button
+	@extend #buttonSample
 	@include fontSize(16)
+	background-color: #fff
 	margin: 10px
 	border-radius: 5px
 	text-decoration: none

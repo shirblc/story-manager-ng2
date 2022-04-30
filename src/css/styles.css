@@ -4,7 +4,7 @@
 #titleSample, #editStory > h3, #addPopUp h3 { font-family: noteworthy; width: 100%; text-align: center; }
 
 /* line 21, ../sass/styles.sass */
-#buttonSample, #editStory button, .controlBtn, #editChapter button, #deletePopUp button, #addPopUp button { text-align: center; background-color: #D7DAFF; font-family: noteworthy; }
+#buttonSample, #editStory button, .controlBtn, #editChapter button, #deletePopUp button, #addPopUp button, .alertMessage button { text-align: center; background-color: #D7DAFF; font-family: noteworthy; }
 
 /* line 27, ../sass/styles.sass */
 #linkSample, .storyContainer a, .chapterDetails a, .storyDetails .editLink, .chapterDetails .editLink, #storyEdit .chapters a, #storyEdit .chapterView a { font-family: noteworthy; background-color: #D7DAFF; text-align: center; display: block; border: thin solid #000000; }
@@ -218,24 +218,24 @@ input { height: 30px; }
 /* =================== Alert Styling =================== */
 /* Base Alert */
 /* line 479, ../sass/styles.sass */
-.alertMessage { width: 70%; box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5); border-radius: 5px; text-align: center; padding: 10px; position: fixed; bottom: 50px; left: 0; right: 0; margin-right: 15%; margin-left: 15%; z-index: 100; /* Responsive design for screens above 500px width */ }
+.alertMessage { width: 70%; box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5); background-color: #D7DAFF; border-radius: 5px; text-align: center; padding: 10px; position: fixed; bottom: 50px; left: 0; right: 0; margin-right: 15%; margin-left: 15%; z-index: 100; /* Responsive design for screens above 500px width */ }
 @media screen and (min-width: 700px) { /* line 479, ../sass/styles.sass */
   .alertMessage { width: 500px; margin: 10px Calc((100% - 500px) / 2); } }
 
 /* Alert icon */
-/* line 498, ../sass/styles.sass */
+/* line 499, ../sass/styles.sass */
 .alertIcon { font-size: 1.5rem; padding-top: 10px; }
 
 /* Alert Title */
-/* line 503, ../sass/styles.sass */
+/* line 504, ../sass/styles.sass */
 .alertType { margin: 0; padding: 5px; font-family: noteworthy; }
 
 /* Alert Text */
-/* line 509, ../sass/styles.sass */
+/* line 510, ../sass/styles.sass */
 .alertText { font-size: 1rem; font-family: noteworthy; padding: 10px; }
 
 /* Alert Button */
-/* line 515, ../sass/styles.sass */
-.alertMessage button { font-size: 1rem; margin: 10px; border-radius: 5px; text-decoration: none; padding-top: 8px; padding-bottom: 8px; }
+/* line 516, ../sass/styles.sass */
+.alertMessage button { font-size: 1rem; background-color: #fff; margin: 10px; border-radius: 5px; text-decoration: none; padding-top: 8px; padding-bottom: 8px; }
 
 /*# sourceMappingURL=styles.css.map */
