@@ -51,6 +51,11 @@ this.addEventListener("fetch", function(event) {
 			//if the url exists in the cache
 			if(response)
 				{
+					// if we're fetching stories, skip the fetch and return the stories
+					if(urlToGet == "/data/stories.json") {
+						return response;
+					}
+
 					//fetches the url from the server and checks whether it was
 					//updated after it was cached. If it was, replaces the URL in
 					//the cache with the newly fetched one
@@ -76,6 +81,15 @@ this.addEventListener("fetch", function(event) {
 			//if the url doesn't exist in the cache
 			else
 				{
+					// if we're fetching stories, skip the fetch and return an empty array
+					if(urlToGet == "/data/stories.json") {
+						return new Response(JSON.stringify([]), {
+							type: "application/json",
+							status: 200,
+							statusText: "OK"
+						});
+					}
+
 					//if the url isn't in the cache,
 					//fetch it and add it to the cache
 					fetch(urlToGet).then(function(response) {

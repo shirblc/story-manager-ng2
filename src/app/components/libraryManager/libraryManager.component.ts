@@ -23,7 +23,7 @@ SOFTWARE.
 */
 
 /* Angular imports */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 /* App-related imports */
@@ -36,12 +36,17 @@ import { LibrarianService } from '../../services/librarian.service';
   selector: 'library-manager',
   templateUrl: './libraryManager.component.html'
 })
-export class LibraryManager {
+export class LibraryManager implements OnInit {
   currentStory?: Story;
   faCirclePlus = faCirclePlus;
 
   constructor(public librarianService:LibrarianService) {
 
+  }
+
+  // OnInit lifecycle method
+  ngOnInit() {
+    this.librarianService.getFromCache();
   }
 
   /*
