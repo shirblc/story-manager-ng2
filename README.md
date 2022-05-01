@@ -3,7 +3,8 @@
 [![CircleCI](https://circleci.com/gh/shirblc/story-manager-ng2.svg?style=shield)](https://circleci.com/gh/shirblc/story-manager-ng2.svg)
 [![codecov](https://codecov.io/gh/shirblc/story-manager-ng2/graph/badge.svg)](https://codecov.io/gh/shirblc/story-manager-ng2)
 [![Known Vulnerabilities](https://snyk.io/test/github/shirblc/story-manager-ng2/badge.svg)](https://snyk.io/test/github/shirblc/story-manager-ng2)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/shirblc/story-manager-ng2)
+[![Depfu](https://badges.depfu.com/badges/47f773fda2e8e13141b8152c9cd51b6a/overview.svg)](https://depfu.com/github/shirblc/story-manager-ng2?project_id=35169)
+[![Depfu](https://badges.depfu.com/badges/47f773fda2e8e13141b8152c9cd51b6a/count.svg)](https://depfu.com/github/shirblc/story-manager-ng2?project_id=35169)
 
 ## Version
 
@@ -12,6 +13,12 @@ Version 1.
 Built using the [angular-gulp](https://github.com/shirblc/angular-gulp) repo.
 
 Originally created as an AngularJS app (see [story-manager-ng1](https://github.com/shirblc/story-manager-ng1) and [story-manager-server-ng1](https://github.com/shirblc/story-manager-server-ng1)). Since AngularJS has now reached it's EOL, I've migrated the project to Angular (currently at version 13).
+
+## Desciption
+
+A story manager app for writers to keep track of their current stories and plotlines. It's currently possible to set a story's basic details and the basic details for each chapter within it. You can create as many stories as you like.
+
+The app utilises Angular for its build and the build tool Gulp for automated tasks.
 
 ## Requirements
 
@@ -44,9 +51,9 @@ The app contains a Story Manager module (in main.ts), which contains two control
 
 1. **LibraryManager** (Previously `libraryMgr` + `libraryCtrl`) - Displays the name and synopsis of each added story. Allows users to add and deletec stories.
 2. **StoryManager** (Previously `storyMgr` + `storyCtrl`) - Displays the name and synopsis of each chapter within the currently open story. Allows users to edit a story's details, as well sa adding, deleting and editing chapters' details.
-	- **storyEdit** - Where the user can edit the story's details.
-	- **chapterEdit** - Where the user can edit a chapter's details.
-3. **Settings** (previously `settings` + `settingsCtrl`) - Allows the users to change several of the app's settings. Still in development.
+3. **storyEdit** - Where the user can edit the story's details.
+4. **chapterEdit** - Where the user can edit a chapter's details.
+5. **Settings** (previously `settings` + `settingsCtrl`) - Allows the users to change several of the app's settings. Still in development.
 
 ### Services
 
