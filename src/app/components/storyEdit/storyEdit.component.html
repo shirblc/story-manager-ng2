@@ -59,17 +59,9 @@
 		<button (click)="closePopUp()">Abort</button>
 	</div>
 
-	<!-- Add chapter popup -->
-	<div id="addPopUp" class="popup off">
-		<h3>Add Chapter</h3>
-		<span class="formTitle">Chapter Number:</span> <input type="text" value="" id="chapterID">
-		<br>
-		<span class="formTitle">Chapter Title:</span> <input type="text" value="" id="chapterTitle">
-		<br>
-		<div class="formTitle">Chapter Synopsis:</div>
-		<textarea id="chapterSynopsis" rows="7" cols="40"></textarea>
-		<br>
-		<button (click)="addChapter()">Save</button>
-		<button (click)="closePopUp()">Abort</button>
-	</div>
+	<add-popup
+		[showPopup]="showAddPopup"
+		[context]="'Chapter'"
+		(editMode)="showPopup = false"
+	></add-popup>
 </div>

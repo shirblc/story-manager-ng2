@@ -1,0 +1,16 @@
+<!-- Modal box and popups -->
+<div id="modalBox" class="off">
+	<div id="addPopUp" class="popup off">
+		<h3>{{ 'Add ' + context }}</h3>
+    <span *ngIf="context == 'Chapter'" class="formTitle">{{ context + ' Number:' }}</span> <input *ngIf="context == 'Chapter'" type="text" value="" id="chapterID">
+		<br>
+		<span class="formTitle">{{ context + ' Title:' }}</span> <input type="text" value="" id="title">
+		<br>
+		<div class="formTitle">{{ context + ' Synopsis:' }}</div>
+		<textarea id="synopsis" rows="7" cols="40"></textarea>
+		<br>
+		<button *ngIf="context == 'Story'" (click)="addStory()">Save</button>
+    <button *ngIf="context == 'Chapter'" (click)="addChapter()">Save</button>
+		<button (click)="togglePopup(false)">Abort</button>
+	</div>
+</div>

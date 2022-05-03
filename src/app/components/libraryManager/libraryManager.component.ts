@@ -28,7 +28,6 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 /* App-related imports */
 import { Story } from '../../interfaces/story.interface';
-import { Chapter } from '../../interfaces/chapter.interface';
 import { LibrarianService } from '../../services/librarian.service';
 
 
@@ -38,6 +37,7 @@ import { LibrarianService } from '../../services/librarian.service';
 })
 export class LibraryManager implements OnInit {
   currentStory?: Story;
+  showPopup: boolean = false;
   faCirclePlus = faCirclePlus;
 
   constructor(public librarianService:LibrarianService) {
@@ -47,53 +47,5 @@ export class LibraryManager implements OnInit {
   // OnInit lifecycle method
   ngOnInit() {
     this.librarianService.getFromCache();
-  }
-
-  /*
-  Function Name: openAdd()
-  Function Description: Opens the "add story" popup.
-  Parameters: None.
-  ----------------
-  Programmer: Shir Bar Lev.
-  */
-  openAdd() {
-    document.getElementById("modalBox")!.className = "on";
-    document.getElementById("addPopUp")!.classList.remove("off");
-    document.getElementById("addPopUp")!.classList.add("on");
-  }
-
-  /*
-  Function Name: addStory()
-  Function Description: Adds a new story.
-  Parameters: None.
-  ----------------
-  Programmer: Shir Bar Lev.
-  */
-  addStory() {
-    let newStory = {
-      "id": this.librarianService.myStories.length + 1,
-      "title": (document.getElementById("storyTitle") as HTMLInputElement).value,
-      "synopsis": (document.getElementById("storySynopsis") as HTMLInputElement).value,
-      "chapters": [] as Chapter[],
-    };
-
-    this.librarianService.addStory(newStory);
-
-    document.getElementById("modalBox")!.className = "off";
-    document.getElementById("addPopUp")!.classList.remove("on");
-    document.getElementById("addPopUp")!.classList.add("off");
-  }
-
-  /*
-  Function Name: closePopUp()
-  Function Description: Closes the popup without adding a new story.
-  Parameters: None.
-  ----------------
-  Programmer: Shir Bar Lev.
-  */
-  closePopUp() {
-    document.getElementById("modalBox")!.className = "off";
-    document.getElementById("addPopUp")!.classList.remove("on");
-    document.getElementById("addPopUp")!.classList.add("off");
   }
 }

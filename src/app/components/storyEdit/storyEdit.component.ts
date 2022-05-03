@@ -29,6 +29,7 @@ import { faCirclePlus, faCircleMinus, faTimesCircle } from '@fortawesome/free-so
 
 /* App-related imports */
 import { Story } from '../../interfaces/story.interface';
+import { Chapter } from '../../interfaces/chapter.interface';
 import { LibrarianService } from '../../services/librarian.service';
 
 
@@ -38,6 +39,8 @@ import { LibrarianService } from '../../services/librarian.service';
 })
 export class StoryEditor {
   storyDetails: Story;
+  editedChapter?: Chapter;
+  showAddPopup = false;
   toDelete: String = "";
   faCirclePlus = faCirclePlus;
   faCircleMinus = faCircleMinus;
@@ -144,54 +147,6 @@ export class StoryEditor {
     document.getElementById("modalBox")!.className = "on";
     document.getElementById("addPopUp")!.classList.remove("off");
     document.getElementById("addPopUp")!.classList.add("on");
-  }
-
-  /*
-  Function Name: addChapter()
-  Function Description: Adds a new chapter.
-  Parameters: None.
-  ----------------
-  Programmer: Shir Bar Lev.
-  */
-  addChapter() {
-    //checks whether a number was entered for chapter number
-    //if there was, places the chapter in the given place
-    //it there wasn't, simply adds it at the end of the current chapters array
-    var numChapter = ((document.getElementById("chapterID") as HTMLInputElement).value)
-      ? Number((document.getElementById("chapterID") as HTMLInputElement).value)
-      : (this.storyDetails.chapters.length + 1);
-
-    //checks if there's already a chapter there
-    //if there is
-    if(this.storyDetails.chapters[numChapter-1])
-      {
-        this.storyDetails.chapters.splice(numChapter-1, 0, {
-          number: numChapter,
-          title: (document.getElementById("chapterTitle") as HTMLInputElement).value,
-          synopsis: (document.getElementById("chapterSynopsis") as HTMLInputElement).value,
-        });
-
-        this.storyDetails.chapters.forEach(function(chapter, index) {
-          chapter.number = index + 1;
-        });
-      }
-    //if there isn't
-    else
-      {
-        //adds the chapter to the array in the story controller and sends it to the librarian
-        this.storyDetails.chapters.push({
-          number: numChapter,
-          title: (document.getElementById("chapterTitle") as HTMLInputElement).value,
-          synopsis: (document.getElementById("chapterSynopsis") as HTMLInputElement).value,
-        });
-      }
-
-    this.librarianService.editStory(this.storyDetails, this.storyDetails.id);
-
-    //removes the modal box and popup
-    document.getElementById("modalBox")!.className = "off";
-    document.getElementById("addPopUp")!.classList.add("off");
-    document.getElementById("addPopUp")!.classList.remove("on");
   }
 
   /*

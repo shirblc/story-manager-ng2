@@ -36,6 +36,7 @@ import { StoryManager } from './components/storyManager/storyManager.component';
 import { StoryEditor } from './components/storyEdit/storyEdit.component';
 import { ChapterEditor } from './components/chapterEdit/chapterEdit.component';
 import { Settings } from './components/settings/settings.component';
+import { AddPopup } from './components/addPopup/addPopup.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { Settings } from './components/settings/settings.component';
     StoryEditor,
     ChapterEditor,
     Settings,
+    AddPopup,
   ],
   providers: [],
   bootstrap: [AppComponent]
