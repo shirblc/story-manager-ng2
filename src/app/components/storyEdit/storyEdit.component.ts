@@ -78,7 +78,7 @@ export class StoryEditor {
   ----------------
   Programmer: Shir Bar Lev.
   */
-  openDeletePopup(toDelete: String) {
+  openDeletePopup(toDelete: string) {
     this.showDeletePopup = true;
     this.toDelete = toDelete;
   }
