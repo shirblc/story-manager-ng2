@@ -4,7 +4,7 @@
 
 <!-- Navigation breadcrumb -->
 <nav>
-	<div id="breadcrumb"><a [routerLink]="['/']">Home</a> / <a [routerLink]="['/stories', storyDetails.id]">Story {{ storyDetails.id }}</a> / Edit</div>
+	<div id="breadcrumb"><a [routerLink]="['/']">Home</a> / <a [routerLink]="['/stories', storyId]">Story {{ storyId }}</a> / Edit</div>
 </nav>
 
 <section id="storyEdit">
@@ -16,13 +16,13 @@
 		<textarea id="storySynopsis" rows="5" cols="40">{{ storyDetails.synopsis }}</textarea>
 		<br>
 		<button (click)="changeDetails()">Save</button>
-		<button (click)="deleteItem(storyDetails.title)">Delete Story</button>
+		<button (click)="openDeletePopup(storyDetails.title)">Delete Story</button>
 	</div>
 
 	<!-- Edit chapters section -->
 	<div id="chapters">
 		<h3 id="editTitle">Edit Chapters</h3>
-		<button id="addChapter" class="controlBtn" (click)="openAddPanel()"><fa-icon [icon]="faCirclePlus"></fa-icon></button>
+		<button id="addChapter" class="controlBtn" (click)="showAddPopup = true"><fa-icon [icon]="faCirclePlus"></fa-icon></button>
 		<button id="removeChapters" class="controlBtn" (click)="openRemovePanel()"><fa-icon [icon]="faCircleMinus"></fa-icon></button>
 		<button id="deleteAll" class="controlBtn" (click)="openDeletePopup('all chapters')"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
 		<button id="doneBtn" class="controlBtn off" (click)="closeRemovePanel()">Finish editing</button>
@@ -47,21 +47,16 @@
 	</div>
 </section>
 
-<!-- Modal box and popups -->
-<div id="modalBox" class="off">
-	<!-- Confirm delete popup -->
-	<div id="deletePopUp" class="popup off">
-		<p>You can't undo this action!</p>
-		<p>Are you sure you want to delete</p>
-		<h3> {{ forDeletion }}?</h3>
-		<br>
-		<button (click)="deleteItem()">Delete</button>
-		<button (click)="closePopUp()">Abort</button>
-	</div>
+<!-- Popups -->
+<add-popup
+	[showPopup]="showAddPopup"
+	[context]="'Chapter'"
+	(editMode)="showAddPopup = false"
+></add-popup>
 
-	<add-popup
-		[showPopup]="showAddPopup"
-		[context]="'Chapter'"
-		(editMode)="showPopup = false"
-	></add-popup>
-</div>
+<confirm-popup
+	[showPopup]="showDeletePopup"
+	[forDeletion]="toDelete"
+	[storyId]="storyId"
+	(editMode)="redirectAfterDelete()"
+></confirm-popup>

@@ -33,7 +33,7 @@
 				<textarea id="chapterSynopsis" rows="7" cols="40">{{ chapterDetails.synopsis }}</textarea>
 				<br>
 				<button (click)="changeChapterDetails()">Save</button>
-				<button (click)="deleteItem()">Delete Chapter</button>
+				<button (click)="openDeletePopup('chapter ' + chapterDetails.number)">Delete Chapter</button>
 			</div>
 
 			<!-- A single chapter's details -->
@@ -45,14 +45,9 @@
 		</div>
 </div>
 
-<!-- Modal box and popup -->
-<div id="modalBox" class="off">
-	<div id="deletePopUp" class="popup">
-		<p>You can't undo this action!</p>
-		<p>Are you sure you want to delete</p>
-		<h3> {{ story.forDeletion }}?</h3>
-		<br>
-		<button (click)="deleteChapter()">Delete</button>
-		<button (click)="closePopUp()">Abort</button>
-	</div>
-</div>
+<confirm-popup
+	[showPopup]="showDeletePopup"
+	[forDeletion]="toDelete"
+	[storyId]="storyId"
+	(editMode)="redirectAfterDelete()"
+></confirm-popup>

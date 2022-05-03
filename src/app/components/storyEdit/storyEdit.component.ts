@@ -38,9 +38,11 @@ import { LibrarianService } from '../../services/librarian.service';
   templateUrl: './storyEdit.component.html'
 })
 export class StoryEditor {
+  storyId = 0;
   storyDetails: Story;
   editedChapter?: Chapter;
   showAddPopup = false;
+  showDeletePopup = false;
   toDelete: String = "";
   faCirclePlus = faCirclePlus;
   faCircleMinus = faCircleMinus;
@@ -51,8 +53,8 @@ export class StoryEditor {
     public route: ActivatedRoute,
     private router: Router
   ) {
-    let storyId = this.route.snapshot.paramMap.get("id") || 1;
-    this.storyDetails = this.librarianService.myStories[Number(storyId)-1];
+    this.storyId = Number(this.route.snapshot.paramMap.get("id")) || 1;
+    this.storyDetails = this.librarianService.myStories[this.storyId-1];
   }
 
   /*
@@ -77,76 +79,27 @@ export class StoryEditor {
   Programmer: Shir Bar Lev.
   */
   openDeletePopup(toDelete: String) {
-    document.getElementById("modalBox")!.className = "on";
-    document.getElementById("deletePopUp")!.classList.remove("off");
-    document.getElementById("deletePopUp")!.classList.add("on");
+    this.showDeletePopup = true;
     this.toDelete = toDelete;
   }
 
   /*
-  Function Name: deleteItem()
-  Function Description: Deletes whatever the user asked to delete.
+  Function Name: redirectAfterDelete()
+  Function Description: Redirects the user after deleting a story/some chapters. If
+                        the user deleted the story, they're redirected back to the Home
+                        page; otherwise they're sent back to the story's page.
   Parameters: None.
   ----------------
   Programmer: Shir Bar Lev.
   */
-  deleteItem() {
-    switch (this.toDelete) {
-      //if the user requested to delete the story
-      case this.storyDetails.title:
-        this.librarianService.deleteStory(this.storyDetails.id);
-        break;
-      //if the user requested to delete all the chapters
-      case "all chapters":
-        this.storyDetails.chapters = [];
-        this.librarianService.editStory(this.storyDetails, this.storyDetails.id);
-        break;
-      //if it's not either of those, the user requested to delete a chapter
-      default:
-        let chapterNum = this.toDelete.substring(8);
-        this.librarianService.deleteChapter(Number(chapterNum));
-        break;
+  redirectAfterDelete() {
+    this.showDeletePopup = false;
+
+    if(this.toDelete == this.storyDetails.title) {
+      this.router.navigate(['/']);
+    } else {
+      this.router.navigate(['/stories', this.storyId]);
     }
-  }
-
-  /*
-  Function Name: closePopUp()
-  Function Description: Aborts deletion and closes the popup.
-  Parameters: None.
-  ----------------
-  Programmer: Shir Bar Lev.
-  */
-  closePopUp() {
-    document.getElementById("modalBox")!.className = "off";
-
-    //if the delete popup is the one from which the function was called, the function hides
-    //it.
-    if(document.getElementById("deletePopUp")!.classList.contains("on"))
-      {
-        document.getElementById("deletePopUp")!.classList.add("off");
-        document.getElementById("deletePopUp")!.classList.remove("on");
-      }
-    //if it wasn't the delete popup, it was the "add" popup, so the function
-    //hides it instead
-    else
-      {
-        document.getElementById("addPopUp")!.classList.add("off");
-        document.getElementById("addPopUp")!.classList.remove("on");
-      }
-  }
-
-  /*
-  Function Name: openAddPanel()
-  Function Description: Opens the panel allowing the user to insert the details for the new
-            chapter.
-  Parameters: None.
-  ----------------
-  Programmer: Shir Bar Lev.
-  */
-  openAddPanel() {
-    document.getElementById("modalBox")!.className = "on";
-    document.getElementById("addPopUp")!.classList.remove("off");
-    document.getElementById("addPopUp")!.classList.add("on");
   }
 
   /*

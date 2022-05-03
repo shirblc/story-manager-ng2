@@ -37,6 +37,7 @@ import { StoryEditor } from './components/storyEdit/storyEdit.component';
 import { ChapterEditor } from './components/chapterEdit/chapterEdit.component';
 import { Settings } from './components/settings/settings.component';
 import { AddPopup } from './components/addPopup/addPopup.component';
+import { ConfirmPopup } from './components/confirmPopup/confirmPopup.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { AddPopup } from './components/addPopup/addPopup.component';
     ChapterEditor,
     Settings,
     AddPopup,
+    ConfirmPopup,
   ],
   providers: [],
   bootstrap: [AppComponent]

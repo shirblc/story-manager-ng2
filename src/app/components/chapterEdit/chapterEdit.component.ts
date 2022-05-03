@@ -40,6 +40,8 @@ export class ChapterEditor {
   storyDetails: Story;
   chapterDetails: Chapter;
   storyId: number = 1;
+  showDeletePopup = false;
+  toDelete = "";
 
   constructor(
     public librarianService:LibrarianService,
@@ -98,40 +100,26 @@ export class ChapterEditor {
   }
 
   /*
-  Function Name: deleteItem()
+  Function Name: openDeletePopup()
   Function Description: Opens a popup to confirm whether to delete the selected item.
-  Parameters: None
+  Parameters: toDelete - the item which needs to be deleted.
   ----------------
   Programmer: Shir Bar Lev.
   */
-  deleteItem() {
-    document.getElementById("modalBox")!.className = "on";
-    document.getElementById("deletePopUp")!.classList.remove("off");
-    document.getElementById("deletePopUp")!.classList.add("on");
+  openDeletePopup(toDelete: string) {
+    this.showDeletePopup = true;
+    this.toDelete = toDelete;
   }
 
   /*
-  Function Name: deleteChapter()
-  Function Description: Deletes the chapter
+  Function Name: redirectAfterDelete()
+  Function Description: Redirects the user after deleting the chapter.
   Parameters: None.
   ----------------
   Programmer: Shir Bar Lev.
   */
-  deleteChapter() {
-    this.librarianService.deleteChapter(this.chapterDetails.number);
-    this.closePopUp();
-  }
-
-  /*
-  Function Name: closePopUp()
-  Function Description: Aborts deletion and closes the popup.
-  Parameters: None.
-  ----------------
-  Programmer: Shir Bar Lev.
-  */
-  closePopUp() {
-    document.getElementById("modalBox")!.className = "off";
-    document.getElementById("deletePopUp")!.classList.add("off");
-    document.getElementById("deletePopUp")!.classList.remove("on");
+  redirectAfterDelete() {
+    this.showDeletePopup = false;
+    this.router.navigate(['/stories', this.storyId]);
   }
 }
