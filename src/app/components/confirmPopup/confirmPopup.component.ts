@@ -58,7 +58,7 @@ export class ConfirmPopup implements OnChanges {
   Programmer: Shir Bar Lev.
   */
   deleteItem() {
-    const currentStory = this.librarianService.myStories[this.storyId - 1];
+    const currentStory = this.librarianService.getStoryWithID(this.storyId)!;
     switch (this.forDeletion) {
       //if the user requested to delete the story
       case currentStory.title:

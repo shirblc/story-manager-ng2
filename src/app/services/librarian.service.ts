@@ -60,12 +60,23 @@ export class LibrarianService {
   /*
   Function Name: setSelectedStory()
   Function Description: Sets the number of the currently selected story.
-  Parameters: numSelected - new selected story.
+  Parameters: storyToSelect - new selected story.
   ----------------
   Programmer: Shir Bar Lev.
   */
   set setSelectedStoryNumber(storyToSelect: number) {
     this.currentlySelectedStory = storyToSelect;
+  }
+
+  /*
+  Function Name: getStoryWithID()
+  Function Description: Tiny helper for getting a story by ID.
+  Parameters: storyId - the ID of the story to get.
+  ----------------
+  Programmer: Shir Bar Lev.
+  */
+  getStoryWithID(storyId: number): Story | undefined {
+    return this.myStories.find((s) => s.id == storyId);
   }
 
   // STORY METHODS
@@ -106,7 +117,9 @@ export class LibrarianService {
     // make sure the user isn't trying to change the ID
     if(storyId != story.id) return;
 
-    this.myStories[storyId-1] = story;
+    let editedStory = this.getStoryWithID(storyId)!;
+    editedStory = story;
+    this.postToCache();
   }
 
   // CHAPTER METHODS

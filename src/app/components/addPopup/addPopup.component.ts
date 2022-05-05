@@ -60,7 +60,7 @@ export class AddPopup implements OnChanges {
   */
   addStory() {
     let newStory: Story = {
-      "id": this.librarianService.myStories.length + 1,
+      "id": this.librarianService.myStories[this.librarianService.myStories.length-1].id + 1,
       "title": (document.getElementById("title") as HTMLInputElement).value,
       "synopsis": (document.getElementById("synopsis") as HTMLInputElement).value,
       "chapters": [] as Chapter[],
@@ -83,8 +83,8 @@ export class AddPopup implements OnChanges {
     //it there wasn't, simply adds it at the end of the current chapters array
     var numChapter = ((document.getElementById("chapterID") as HTMLInputElement).value)
       ? Number((document.getElementById("chapterID") as HTMLInputElement).value)
-      : (this.librarianService.myStories[this.storyId-1].chapters.length + 1);
-    this.storyDetails = this.librarianService.myStories[this.storyId-1];
+      : (this.librarianService.getStoryWithID(this.storyId)!.chapters.length + 1);
+    this.storyDetails = this.librarianService.getStoryWithID(this.storyId)!;
 
     //checks if there's already a chapter there
     //if there is

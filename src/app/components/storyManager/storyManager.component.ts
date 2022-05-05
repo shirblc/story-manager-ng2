@@ -42,7 +42,7 @@ export class StoryManager {
     public librarianService:LibrarianService,
     public route: ActivatedRoute
   ) {
-    let storyId = this.route.snapshot.paramMap.get("id") || 1;
-    this.storyDetails = this.librarianService.myStories[Number(storyId)-1];
+    let storyId = Number(this.route.snapshot.paramMap.get("id")) || 1;
+    this.storyDetails = this.librarianService.getStoryWithID(storyId)!;
   }
 }

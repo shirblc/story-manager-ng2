@@ -50,7 +50,7 @@ export class ChapterEditor {
   ) {
     this.storyId = Number(this.route.snapshot.paramMap.get("id")) || 1;
     let chapterId = this.route.snapshot.paramMap.get("chapterId") || 1;
-    this.storyDetails = this.librarianService.myStories[this.storyId-1];
+    this.storyDetails = this.librarianService.getStoryWithID(this.storyId)!;
     this.chapterDetails = this.storyDetails.chapters[Number(chapterId)-1];
   }
 
