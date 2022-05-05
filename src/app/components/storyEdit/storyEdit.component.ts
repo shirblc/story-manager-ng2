@@ -103,36 +103,22 @@ export class StoryEditor {
   }
 
   /*
-  Function Name: openRemovePanel()
-  Function Description: Opens the panel allowing the user to choose which chapters to delete.
-  Parameters: None.
+  Function Name: toggleRemovePanel()
+  Function Description: Opens/closes the panel allowing the user to choose which chapters to delete.
+  Parameters: turnOn (boolean) - whether to turn the popup on or off.
   ----------------
   Programmer: Shir Bar Lev.
   */
-  openRemovePanel() {
+  toggleRemovePanel(turnOn: boolean) {
+    const addClass = turnOn ? "on" : "off";
+    const removeClass = turnOn ? "off" : "on";
+
     document.querySelectorAll(".remove").forEach(function(chapter) {
-      chapter.classList.add("on");
-      chapter.classList.remove("off");
+      chapter.classList.add(addClass);
+      chapter.classList.remove(removeClass);
     })
 
-    document.getElementById("doneBtn")!.classList.add("on");
-    document.getElementById("doneBtn")!.classList.remove("off");
-  }
-
-  /*
-  Function Name: closeRemovePanel()
-  Function Description: Closes the panel allowing the user to choose which chapters to delete.
-  Parameters: None.
-  ----------------
-  Programmer: Shir Bar Lev.
-  */
-  closeRemovePanel() {
-    document.querySelectorAll(".remove").forEach(function(chapter) {
-      chapter.classList.add("off");
-      chapter.classList.remove("on");
-    })
-
-    document.getElementById("doneBtn")!.classList.add("off");
-    document.getElementById("doneBtn")!.classList.remove("on");
+    document.getElementById("doneBtn")!.classList.add(addClass);
+    document.getElementById("doneBtn")!.classList.remove(removeClass);
   }
 }
