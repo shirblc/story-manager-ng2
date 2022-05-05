@@ -41,7 +41,6 @@ export class AddPopup implements OnChanges {
   @Input() context: 'Story' | 'Chapter' = 'Story';
   // indicates whether the popup is still required
   @Output() editMode = new EventEmitter<boolean>();
-  storyDetails?: Story;
   chapterIdFormCtrl: FormControl = new FormControl('');
   titleFormCtrl: FormControl = new FormControl('');
   synopsisFormCtrl: FormControl = new FormControl('');
@@ -87,7 +86,6 @@ export class AddPopup implements OnChanges {
     var numChapter = (this.chapterIdFormCtrl.value)
       ? Number(this.chapterIdFormCtrl.value)
       : (this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!.chapters.length + 1);
-    this.storyDetails = this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!;
 
     const chapter = {
       number: numChapter,
