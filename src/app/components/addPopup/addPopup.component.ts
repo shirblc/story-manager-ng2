@@ -89,32 +89,13 @@ export class AddPopup implements OnChanges {
       : (this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!.chapters.length + 1);
     this.storyDetails = this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!;
 
-    //checks if there's already a chapter there
-    //if there is
-    if(this.storyDetails.chapters[numChapter-1])
-      {
-        this.storyDetails.chapters.splice(numChapter-1, 0, {
-          number: numChapter,
-          title: this.titleFormCtrl.value,
-          synopsis: this.synopsisFormCtrl.value,
-        });
+    const chapter = {
+      number: numChapter,
+      title: this.titleFormCtrl.value,
+      synopsis: this.synopsisFormCtrl.value,
+    };
 
-        this.storyDetails.chapters.forEach(function(chapter, index) {
-          chapter.number = index + 1;
-        });
-      }
-    //if there isn't
-    else
-      {
-        //adds the chapter to the array in the story controller and sends it to the librarian
-        this.storyDetails.chapters.push({
-          number: numChapter,
-          title: this.titleFormCtrl.value,
-          synopsis: this.synopsisFormCtrl.value,
-        });
-      }
-
-    this.librarianService.editStory(this.storyDetails!, this.storyDetails.id);
+    this.librarianService.addChapter(chapter);
 
     //removes the modal box and popup
     this.togglePopup(false);
