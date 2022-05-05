@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	<!-- If there aren't any chapters in the array -->
-	<div id="noData" ng-if="storyDetails.chapters.length == 0">
+	<div id="noData" *ngIf="storyDetails.chapters.length == 0">
 		<h3>There's nothing here!</h3>
 		<div>Create your first chapter through the edit panel.</div>
 		<div>Click the "edit" link above to open the panel.</div>
