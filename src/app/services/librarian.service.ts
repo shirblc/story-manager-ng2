@@ -69,6 +69,17 @@ export class LibrarianService {
   }
 
   /*
+  Function Name: getSelectedStoryIndex()
+  Function Description: Returns the index of the currently selected story.
+  Parameters: None.
+  ----------------
+  Programmer: Shir Bar Lev.
+  */
+  get getSelectedStoryIndex(): number {
+    return this.myStories.findIndex((s) => s.id == this.currentlySelectedStory);
+  }
+
+  /*
   Function Name: getStoryWithID()
   Function Description: Tiny helper for getting a story by ID.
   Parameters: storyId - the ID of the story to get.
@@ -132,22 +143,21 @@ export class LibrarianService {
   Programmer: Shir Bar Lev.
   */
   addChapter(chapter: Chapter) {
-    const storyIndex = this.myStories.findIndex((s) => s.id == this.currentlySelectedStory);
-    const existingChapterWithIdIndex = this.myStories[storyIndex].chapters.findIndex(c => c.number = chapter.number);
+    const existingChapterWithIdIndex = this.myStories[this.getSelectedStoryIndex].chapters.findIndex(c => c.number = chapter.number);
 
     //checks if there's already a chapter there
     //if there is
     if(existingChapterWithIdIndex > 0) {
-      this.myStories[storyIndex].chapters.forEach((c) => {
+      this.myStories[this.getSelectedStoryIndex].chapters.forEach((c) => {
         if(c.number >= chapter.number) {
           c.number += 1;
         }
       });
-      this.myStories[storyIndex].chapters.splice(existingChapterWithIdIndex, 0, chapter);
+      this.myStories[this.getSelectedStoryIndex].chapters.splice(existingChapterWithIdIndex, 0, chapter);
     //if there isn't
     } else {
       //adds the chapter to the array in the story controller and sends it to the librarian
-      this.myStories[storyIndex].chapters.push(chapter);
+      this.myStories[this.getSelectedStoryIndex].chapters.push(chapter);
     }
 
     this.postToCache();
@@ -161,7 +171,7 @@ export class LibrarianService {
   Programmer: Shir Bar Lev.
   */
   deleteChapter(chapterNumber: number) {
-    this.myStories[this.currentlySelectedStory].chapters.splice(chapterNumber-1, 1);
+    this.myStories[this.getSelectedStoryIndex].chapters.splice(chapterNumber-1, 1);
     this.postToCache();
   }
 
@@ -174,7 +184,7 @@ export class LibrarianService {
   Programmer: Shir Bar Lev.
   */
   editChapter(chapter: Chapter, chapterNum: number) {
-    this.myStories[this.currentlySelectedStory].chapters[chapterNum-1] = chapter;
+    this.myStories[this.getSelectedStoryIndex].chapters[chapterNum-1] = chapter;
     this.postToCache();
   }
 
