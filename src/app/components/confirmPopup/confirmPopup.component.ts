@@ -37,7 +37,6 @@ import { LibrarianService } from '../../services/librarian.service';
 export class ConfirmPopup implements OnChanges {
   @Input() showPopup: boolean = false;
   @Input() forDeletion?: String;
-  @Input() storyId: number = 0;
   // indicates whether the popup is still required
   @Output() editMode = new EventEmitter<boolean>();
   storyDetails?: Story;
@@ -58,7 +57,7 @@ export class ConfirmPopup implements OnChanges {
   Programmer: Shir Bar Lev.
   */
   deleteItem() {
-    const currentStory = this.librarianService.getStoryWithID(this.storyId)!;
+    const currentStory = this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!;
     switch (this.forDeletion) {
       //if the user requested to delete the story
       case currentStory.title:

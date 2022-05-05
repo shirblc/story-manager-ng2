@@ -51,13 +51,11 @@
 <add-popup
 	[showPopup]="showAddPopup"
 	[context]="'Chapter'"
-	[storyId]="storyId"
 	(editMode)="showAddPopup = false"
 ></add-popup>
 
 <confirm-popup
 	[showPopup]="showDeletePopup"
 	[forDeletion]="toDelete"
-	[storyId]="storyId"
 	(editMode)="redirectAfterDelete()"
 ></confirm-popup>

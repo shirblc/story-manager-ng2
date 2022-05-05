@@ -55,6 +55,7 @@ export class StoryEditor {
   ) {
     this.storyId = Number(this.route.snapshot.paramMap.get("id")) || 1;
     this.storyDetails = this.librarianService.getStoryWithID(this.storyId)!;
+    this.librarianService.setSelectedStoryNumber = this.storyId;
   }
 
   /*

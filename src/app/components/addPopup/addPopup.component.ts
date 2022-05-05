@@ -38,7 +38,6 @@ import { LibrarianService } from '../../services/librarian.service';
 export class AddPopup implements OnChanges {
   @Input() showPopup: boolean = false;
   @Input() context: 'Story' | 'Chapter' = 'Story';
-  @Input() storyId: number = 0;
   // indicates whether the popup is still required
   @Output() editMode = new EventEmitter<boolean>();
   storyDetails?: Story;
@@ -83,8 +82,8 @@ export class AddPopup implements OnChanges {
     //it there wasn't, simply adds it at the end of the current chapters array
     var numChapter = ((document.getElementById("chapterID") as HTMLInputElement).value)
       ? Number((document.getElementById("chapterID") as HTMLInputElement).value)
-      : (this.librarianService.getStoryWithID(this.storyId)!.chapters.length + 1);
-    this.storyDetails = this.librarianService.getStoryWithID(this.storyId)!;
+      : (this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!.chapters.length + 1);
+    this.storyDetails = this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!;
 
     //checks if there's already a chapter there
     //if there is

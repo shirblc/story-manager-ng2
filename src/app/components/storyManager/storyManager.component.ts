@@ -44,5 +44,6 @@ export class StoryManager {
   ) {
     let storyId = Number(this.route.snapshot.paramMap.get("id")) || 1;
     this.storyDetails = this.librarianService.getStoryWithID(storyId)!;
+    this.librarianService.setSelectedStoryNumber = storyId;
   }
 }
