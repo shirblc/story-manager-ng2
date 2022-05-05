@@ -27,6 +27,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
@@ -47,6 +48,7 @@ import { ConfirmPopup } from './components/confirmPopup/confirmPopup.component';
     FontAwesomeModule,
     ServiceWorkerModule.register('sw.js'),
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     AppComponent,

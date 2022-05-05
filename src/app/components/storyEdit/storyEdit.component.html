@@ -11,9 +11,9 @@
 	<!-- Edit Story section -->
 	<div id="editStory">
 		<h3>Edit Story Details</h3>
-		<span class="formTitle">Story Title:</span> <input type="text" value="{{ storyDetails.title }}" id="storyTitle">
+		<span class="formTitle">Story Title:</span> <input type="text" [formControl]="storyTitleFormCtrl" id="storyTitle">
 		<div class="formTitle">Story Synopsis:</div>
-		<textarea id="storySynopsis" rows="5" cols="40">{{ storyDetails.synopsis }}</textarea>
+		<textarea id="storySynopsis" [formControl]="storySynopsisFormCtrl" rows="5" cols="40"></textarea>
 		<br>
 		<button (click)="changeDetails()">Save</button>
 		<button (click)="openDeletePopup(storyDetails.title)">Delete Story</button>

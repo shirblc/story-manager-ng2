@@ -25,6 +25,7 @@ SOFTWARE.
 /* Angular imports */
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 /* App-related imports */
 import { Story } from '../../interfaces/story.interface';
@@ -42,6 +43,9 @@ export class ChapterEditor {
   storyId: number = 1;
   showDeletePopup = false;
   toDelete = "";
+  chapterIdFormCtrl: FormControl = new FormControl('');
+  chapterTitleFormCtrl: FormControl = new FormControl('');
+  chapterSynopsisFormCtrl: FormControl = new FormControl('');
 
   constructor(
     public librarianService:LibrarianService,
@@ -53,6 +57,9 @@ export class ChapterEditor {
     this.storyDetails = this.librarianService.getStoryWithID(this.storyId)!;
     this.chapterDetails = this.storyDetails.chapters[Number(chapterId)-1];
     this.librarianService.setSelectedStoryNumber = this.storyId;
+    this.chapterIdFormCtrl.setValue(this.chapterDetails.number);
+    this.chapterTitleFormCtrl.setValue(this.chapterDetails.title);
+    this.chapterSynopsisFormCtrl.setValue(this.chapterDetails.synopsis);
   }
 
   /*
@@ -63,9 +70,9 @@ export class ChapterEditor {
   Programmer: Shir Bar Lev.
   */
   changeChapterDetails() {
-    const chapterNumber = Number((document.getElementById("chapterID") as HTMLInputElement).value);
-    const chapterTitle = (document.getElementById("chapterTitle") as HTMLInputElement).value;
-    const chapterSynopsis = (document.getElementById("chapterSynopsis") as HTMLInputElement).value;
+    const chapterNumber = Number(this.chapterIdFormCtrl.value);
+    const chapterTitle = this.chapterTitleFormCtrl.value;
+    const chapterSynopsis = this.chapterSynopsisFormCtrl.value;
 
     //checks whether the user changed the number of the chapter; if it's still the same
     //number, only updates the synopsis and title

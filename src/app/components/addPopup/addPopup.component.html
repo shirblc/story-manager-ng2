@@ -2,12 +2,12 @@
 <div id="modalBox" class="off">
 	<div id="addPopUp" class="popup off">
 		<h3>{{ 'Add ' + context }}</h3>
-    <span *ngIf="context == 'Chapter'" class="formTitle">{{ context + ' Number:' }}</span> <input *ngIf="context == 'Chapter'" type="text" value="" id="chapterID">
+    <span *ngIf="context == 'Chapter'" class="formTitle">{{ context + ' Number:' }}</span> <input *ngIf="context == 'Chapter'" type="text" [formControl]="chapterIdFormCtrl" id="chapterID">
 		<br>
-		<span class="formTitle">{{ context + ' Title:' }}</span> <input type="text" value="" id="title">
+		<span class="formTitle">{{ context + ' Title:' }}</span> <input type="text" [formControl]="titleFormCtrl" id="title">
 		<br>
 		<div class="formTitle">{{ context + ' Synopsis:' }}</div>
-		<textarea id="synopsis" rows="7" cols="40"></textarea>
+		<textarea id="synopsis" [formControl]="synopsisFormCtrl" rows="7" cols="40"></textarea>
 		<br>
 		<button *ngIf="context == 'Story'" (click)="addStory()">Save</button>
     <button *ngIf="context == 'Chapter'" (click)="addChapter()">Save</button>

@@ -24,6 +24,7 @@ SOFTWARE.
 
 /* Angular imports */
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 /* App-related imports */
 import { Story } from '../../interfaces/story.interface';
@@ -41,6 +42,9 @@ export class AddPopup implements OnChanges {
   // indicates whether the popup is still required
   @Output() editMode = new EventEmitter<boolean>();
   storyDetails?: Story;
+  chapterIdFormCtrl: FormControl = new FormControl('');
+  titleFormCtrl: FormControl = new FormControl('');
+  synopsisFormCtrl: FormControl = new FormControl('');
 
   constructor(public librarianService:LibrarianService) {}
 
@@ -60,8 +64,8 @@ export class AddPopup implements OnChanges {
   addStory() {
     let newStory: Story = {
       "id": this.librarianService.myStories[this.librarianService.myStories.length-1].id + 1,
-      "title": (document.getElementById("title") as HTMLInputElement).value,
-      "synopsis": (document.getElementById("synopsis") as HTMLInputElement).value,
+      "title": this.titleFormCtrl.value,
+      "synopsis": this.synopsisFormCtrl.value,
       "chapters": [] as Chapter[],
     };
 
@@ -80,8 +84,8 @@ export class AddPopup implements OnChanges {
     //checks whether a number was entered for chapter number
     //if there was, places the chapter in the given place
     //it there wasn't, simply adds it at the end of the current chapters array
-    var numChapter = ((document.getElementById("chapterID") as HTMLInputElement).value)
-      ? Number((document.getElementById("chapterID") as HTMLInputElement).value)
+    var numChapter = (this.chapterIdFormCtrl.value)
+      ? Number(this.chapterIdFormCtrl.value)
       : (this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!.chapters.length + 1);
     this.storyDetails = this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!;
 
@@ -91,8 +95,8 @@ export class AddPopup implements OnChanges {
       {
         this.storyDetails.chapters.splice(numChapter-1, 0, {
           number: numChapter,
-          title: (document.getElementById("title") as HTMLInputElement).value,
-          synopsis: (document.getElementById("synopsis") as HTMLInputElement).value,
+          title: this.titleFormCtrl.value,
+          synopsis: this.synopsisFormCtrl.value,
         });
 
         this.storyDetails.chapters.forEach(function(chapter, index) {
@@ -105,8 +109,8 @@ export class AddPopup implements OnChanges {
         //adds the chapter to the array in the story controller and sends it to the librarian
         this.storyDetails.chapters.push({
           number: numChapter,
-          title: (document.getElementById("title") as HTMLInputElement).value,
-          synopsis: (document.getElementById("synopsis") as HTMLInputElement).value,
+          title: this.titleFormCtrl.value,
+          synopsis: this.synopsisFormCtrl.value,
         });
       }
 

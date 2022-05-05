@@ -25,6 +25,7 @@ SOFTWARE.
 /* Angular imports */
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 import { faCirclePlus, faCircleMinus, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 /* App-related imports */
@@ -44,6 +45,8 @@ export class StoryEditor {
   showAddPopup = false;
   showDeletePopup = false;
   toDelete: String = "";
+  storyTitleFormCtrl: FormControl = new FormControl('');
+  storySynopsisFormCtrl: FormControl = new FormControl('');
   faCirclePlus = faCirclePlus;
   faCircleMinus = faCircleMinus;
   faTimesCircle = faTimesCircle;
@@ -56,6 +59,8 @@ export class StoryEditor {
     this.storyId = Number(this.route.snapshot.paramMap.get("id")) || 1;
     this.storyDetails = this.librarianService.getStoryWithID(this.storyId)!;
     this.librarianService.setSelectedStoryNumber = this.storyId;
+    this.storyTitleFormCtrl.setValue(this.storyDetails.title);
+    this.storySynopsisFormCtrl.setValue(this.storyDetails.synopsis);
   }
 
   /*
@@ -66,8 +71,8 @@ export class StoryEditor {
   Programmer: Shir Bar Lev.
   */
   changeDetails() {
-    this.storyDetails.title = (document.getElementById("storyTitle") as HTMLInputElement).value;
-    this.storyDetails.synopsis = (document.getElementById("storySynopsis") as HTMLInputElement).value;
+    this.storyDetails.title = this.storyTitleFormCtrl.value;
+    this.storyDetails.synopsis = this.storySynopsisFormCtrl.value;
     this.librarianService.editStory(this.storyDetails, this.storyDetails.id);
     this.router.navigate(['/stories', this.storyDetails.id]);
   }

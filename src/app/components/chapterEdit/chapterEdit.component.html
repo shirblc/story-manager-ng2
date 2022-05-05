@@ -25,12 +25,12 @@
 			<!-- Edit the selected chapter -->
 			<div id="editChapter">
 				<h3>Edit Chapter Details</h3>
-				<span class="formTitle">Chapter Number:</span> <input type="text" value="{{ chapterDetails.number }}" id="chapterID">
+				<span class="formTitle">Chapter Number:</span> <input type="text" [formControl]="chapterIdFormCtrl" id="chapterID">
 				<br>
-				<span class="formTitle">Chapter Title:</span> <input type="text" value="{{ chapterDetails.title }}" id="chapterTitle">
+				<span class="formTitle">Chapter Title:</span> <input type="text" [formControl]="chapterTitleFormCtrl" id="chapterTitle">
 				<br>
 				<div class="formTitle">Chapter Synopsis:</div>
-				<textarea id="chapterSynopsis" rows="7" cols="40">{{ chapterDetails.synopsis }}</textarea>
+				<textarea id="chapterSynopsis" [formControl]="chapterSynopsisFormCtrl" rows="7" cols="40"></textarea>
 				<br>
 				<button (click)="changeChapterDetails()">Save</button>
 				<button (click)="openDeletePopup('chapter ' + chapterDetails.number)">Delete Chapter</button>
