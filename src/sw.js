@@ -119,7 +119,10 @@ this.addEventListener("message", function(event) {
 		let res = new Response(JSON.stringify(event.data), {
 			type: "application/json",
 			status: 200,
-			statusText: "OK"
+			statusText: "OK",
+			headers: {
+				"Last-Modified": new Date()
+			}
 		});
 
 		//replaces the existing "stories.json"
