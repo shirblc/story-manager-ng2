@@ -90,6 +90,18 @@ export class StoryEditor {
   }
 
   /*
+  Function Name: refetchAfterEdit()
+  Function Description: Refetches data after adding a chapter.
+  Parameters: None.
+  ----------------
+  Programmer: Shir Bar Lev.
+  */
+  refetchAfterEdit() {
+    this.showAddPopup = false;
+    this.storyDetails = this.librarianService.getStoryWithID(this.librarianService.getSelectedStoryNumber)!
+  }
+
+  /*
   Function Name: redirectAfterDelete()
   Function Description: Redirects the user after deleting a story/some chapters. If
                         the user deleted the story, they're redirected back to the Home

@@ -51,7 +51,7 @@
 <add-popup
 	[showPopup]="showAddPopup"
 	[context]="'Chapter'"
-	(editMode)="showAddPopup = false"
+	(editMode)="refetchAfterEdit()"
 ></add-popup>
 
 <confirm-popup
