@@ -171,7 +171,8 @@ export class LibrarianService {
   Programmer: Shir Bar Lev.
   */
   deleteChapter(chapterNumber: number) {
-    this.myStories[this.getSelectedStoryIndex].chapters.splice(chapterNumber-1, 1);
+    const chapterIndex = this.myStories[this.getSelectedStoryIndex].chapters.findIndex(c => c.number == chapterNumber);
+    this.myStories[this.getSelectedStoryIndex].chapters.splice(chapterIndex, 1);
     this.postToCache();
   }
 
@@ -184,7 +185,8 @@ export class LibrarianService {
   Programmer: Shir Bar Lev.
   */
   editChapter(chapter: Chapter, chapterNum: number) {
-    this.myStories[this.getSelectedStoryIndex].chapters[chapterNum-1] = chapter;
+    const chapterIndex = this.myStories[this.getSelectedStoryIndex].chapters.findIndex(c => c.number == chapterNum);
+    this.myStories[this.getSelectedStoryIndex].chapters[chapterIndex] = chapter;
     this.postToCache();
   }
 
