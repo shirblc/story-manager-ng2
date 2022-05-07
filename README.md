@@ -8,7 +8,7 @@
 
 ## Version
 
-Version 1.
+Version 1 (in progress).
 
 Built using the [angular-gulp](https://github.com/shirblc/angular-gulp) repo.
 
@@ -52,8 +52,10 @@ The app contains a Story Manager module (in main.ts), which contains two control
 1. **LibraryManager** (Previously `libraryMgr` + `libraryCtrl`) - Displays the name and synopsis of each added story. Allows users to add and deletec stories.
 2. **StoryManager** (Previously `storyMgr` + `storyCtrl`) - Displays the name and synopsis of each chapter within the currently open story. Allows users to edit a story's details, as well sa adding, deleting and editing chapters' details.
 3. **storyEdit** - Where the user can edit the story's details.
-4. **chapterEdit** - Where the user can edit a chapter's details.
+4. **ErrorPage** - An error page.
 5. **Settings** (previously `settings` + `settingsCtrl`) - Allows the users to change several of the app's settings. Still in development.
+6. **AddPopup** - The popup for adding chapter/story.
+7. **ConfirmPopup** - The popup for confirming before deleting an item.
 
 ### Services
 
