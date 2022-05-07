@@ -30,12 +30,28 @@
 		<!-- If there are chapters in the array -->
 		<div class="chapters" *ngIf="storyDetails.chapters.length != 0">
 			<div class="chapter" *ngFor="let chapter of storyDetails.chapters">
-				<button class="remove off" (click)="openDeletePopup('Chapter ' + chapter.number)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
-				<div class="chapterDetails">
-					<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
-					<h4 class="chapterTitle"> {{ chapter.title }} </h4>
-					<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
-					<a [routerLink]="['/stories', storyDetails.id, 'chapters', chapter.number, 'editor']">Edit</a>
+				<div *ngIf="!chapter || chapter != editedChapter">
+					<button class="remove off" (click)="openDeletePopup('Chapter ' + chapter.number)"><fa-icon [icon]="faTimesCircle"></fa-icon></button>
+					<div class="chapterDetails">
+						<h4 class="chapterTitle"> Chapter {{ chapter.number }}:</h4>
+						<h4 class="chapterTitle"> {{ chapter.title }} </h4>
+						<p class="chapterSynopsis"> {{ chapter.synopsis }} </p>
+						<button (click)="startChapterEdit(chapter)">Edit</button>
+					</div>
+				</div>
+				<!-- Edit Chapter section -->
+				<!-- Edit the selected chapter -->
+				<div id="editChapter" *ngIf="chapter && chapter == editedChapter">
+					<h3>Edit Chapter Details</h3>
+					<span class="formTitle">Chapter Number:</span> <input type="text" [formControl]="chapterIdFormCtrl" id="chapterID">
+					<br>
+					<span class="formTitle">Chapter Title:</span> <input type="text" [formControl]="chapterTitleFormCtrl" id="chapterTitle">
+					<br>
+					<div class="formTitle">Chapter Synopsis:</div>
+					<textarea id="chapterSynopsis" [formControl]="chapterSynopsisFormCtrl" rows="7" cols="40"></textarea>
+					<br>
+					<button (click)="changeChapterDetails()">Save</button>
+					<button (click)="openDeletePopup('chapter ' + chapterDetails.number)">Delete Chapter</button>
 				</div>
 			</div>
 		</div>

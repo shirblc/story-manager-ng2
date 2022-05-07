@@ -8,7 +8,6 @@ this.addEventListener("install", function(event) {
 			let toCache = [
 				'/index.html',
 				'/app/app.component.html',
-				'/app/chapterEdit.component.html',
 				'/app/errorPage.component.html',
 				'/app/libraryManager.component.html',
 				'/app/settings.component.html',

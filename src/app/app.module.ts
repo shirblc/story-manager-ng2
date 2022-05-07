@@ -35,7 +35,6 @@ import { ErrorPage } from './components/errorPage/errorPage.component';
 import { LibraryManager } from './components/libraryManager/libraryManager.component';
 import { StoryManager } from './components/storyManager/storyManager.component';
 import { StoryEditor } from './components/storyEdit/storyEdit.component';
-import { ChapterEditor } from './components/chapterEdit/chapterEdit.component';
 import { Settings } from './components/settings/settings.component';
 import { AddPopup } from './components/addPopup/addPopup.component';
 import { ConfirmPopup } from './components/confirmPopup/confirmPopup.component';
@@ -56,7 +55,6 @@ import { ConfirmPopup } from './components/confirmPopup/confirmPopup.component';
     LibraryManager,
     StoryManager,
     StoryEditor,
-    ChapterEditor,
     Settings,
     AddPopup,
     ConfirmPopup,
