@@ -199,6 +199,7 @@ export class LibrarianService {
   Programmer: Shir Bar Lev.
   */
   postToCache() {
+    // TODO: switch this to IDB
     navigator.serviceWorker.controller?.postMessage(this.myStories);
   }
 
