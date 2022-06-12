@@ -340,7 +340,9 @@ exports.dist = gulp.parallel(
 	copyIndexDist,
 	copyImgsDist,
 	stylesDist,
-	scriptsDist
+	copyFontsDist,
+	scriptsDist,
+	copyServiceWorkerDist,
 );
 exports.unitTest = unitTest;
 exports.watch = watch;
