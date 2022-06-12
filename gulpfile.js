@@ -335,6 +335,13 @@ exports.copyImgs = copyImgs;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.scriptsDist = scriptsDist;
+exports.dist = gulp.parallel(
+	copyHtmlDist,
+	copyIndexDist,
+	copyImgsDist,
+	stylesDist,
+	scriptsDist
+);
 exports.unitTest = unitTest;
 exports.watch = watch;
 exports.e2e = e2e;
