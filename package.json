@@ -1,7 +1,7 @@
 {
-  "name": "angular-gulp",
+  "name": "story-manager",
   "version": "1.0.0",
-  "description": "Angular-gulp template.",
+  "description": "Story manager (Angular 2 version).",
   "main": "app.bundle.js",
   "directories": {
     "test": "tests"
