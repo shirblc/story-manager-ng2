@@ -68,7 +68,7 @@
     "@fortawesome/angular-fontawesome": "^0.11.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "compression": "^1.7.4",
-    "core-js": "^3.23.5",
+    "core-js": "^3.24.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "rxjs": "^7.5.6",
