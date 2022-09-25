@@ -2,7 +2,6 @@ const gulp = require("gulp");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const terser = require("gulp-terser");
-const babel = require("gulp-babel");
 const sourcemaps = require("gulp-sourcemaps");
 const browserSync = require("browser-sync").create();
 const source = require("vinyl-source-stream");
@@ -92,7 +91,6 @@ function scripts()
 				let newString = `templateUrl: './app/${componentName}.component.html`
 				return newString;
 			}))
-      // .pipe(babel({presets: ["@babel/preset-env"]}))
 			.pipe(rename("app.bundle.js"))
       .pipe(sourcemaps.write("./"))
       .pipe(gulp.dest("./localdev"));
