@@ -69,7 +69,7 @@ function scripts()
 {
 	const options = {
 		input: 'src/main.ts',
-		output: { sourcemap: true },
+		output: { sourcemap: 'inline' },
 		plugins: [
 			typescript({ exclude: ['**/*.spec.ts', 'e2e/**/*'] }),
 			nodeResolve({
@@ -180,7 +180,7 @@ function scriptsDist()
 {
 	const options = {
 		input: 'src/main.ts',
-		output: { sourcemap: true },
+		output: { sourcemap: false },
 		plugins: [
 			setProductionEnv(),
 			typescript({ exclude: ['**/*.spec.ts', 'e2e/**/*'] }),
