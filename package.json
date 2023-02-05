@@ -12,7 +12,7 @@
     "test": "gulp test",
     "cypress": "cypress run",
     "e2e": "gulp e2e",
-    "config": "node env-config.js",
+    "build": "node env-config.js",
     "start": "node server.js"
   },
   "author": "Shir Bar Lev",
