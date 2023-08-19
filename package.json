@@ -24,7 +24,7 @@
     "@rollup/stream": "^3.0.0",
     "@types/jasmine": "^4.3.5",
     "@types/node": "^20.5.1",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.15",
     "browser-sync": "^2.29.3",
     "cypress": "^12.17.4",
     "gulp": "^4.0.2",
