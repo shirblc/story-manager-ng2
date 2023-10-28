@@ -1,5 +1,5 @@
 const path = require('path');
-const replaceTemplateUrl = require("./processor").replaceTemplateUrl;
+const inlineComponentTemplate = require("./processor").inlineComponentTemplate;
 const coverage = require("rollup-plugin-istanbul");
 const commonjs = require("@rollup/plugin-commonjs");
 const nodeResolve = require("@rollup/plugin-node-resolve").nodeResolve;
@@ -23,7 +23,7 @@ module.exports = function (karma) {
         coverage({
           exclude: ['node_modules/**', '**/*.spec.ts', '**/*.mock.ts', 'src/tests.spec.ts']
         }),
-        replaceTemplateUrl(),
+        inlineComponentTemplate(),
   			typescript({ exclude: ['e2e/**/*'] }),
   			nodeResolve({
   				extensions: ['.js', '.ts']
