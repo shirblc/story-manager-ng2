@@ -17,7 +17,7 @@ const nodeResolve = require("@rollup/plugin-node-resolve").nodeResolve;
 const typescript = require("@rollup/plugin-typescript");
 const { exec } = require("child_process");
 const setProductionEnv = require("./processor").setProductionEnv;
-const sass = require('gulp-sass')(require('sass'));
+const less = require('gulp-less');
 const updateComponentTemplateUrl = require("./processor").updateComponentTemplateUrl;
 
 // LOCAL DEVELOPMENT TASKS
@@ -47,13 +47,12 @@ function copyImgs()
 		.pipe(gulp.dest("localdev/assets/img"));
 }
 
-//sets gulp to add prefixes with Autoprefixer after Dreamweaver outputs the Sass filee to CSS
-//once the prefixer finishes its job, outputs the file to the distribution folder
+//converts the less files to css and adds prefixes with Autoprefixer
 function styles()
 {
 	return gulp
-		.src("src/sass/*.sass")
-		.pipe(sass().on('error', sass.logError))
+		.src("src/styles/*.less")
+		.pipe(less())
 		.pipe(postcss([autoprefixer()]))
 		.pipe(gulp.dest("./localdev/css"));
 }
@@ -105,7 +104,7 @@ async function watch()
 	gulp.watch("src/app/**/*.html", copyHtml)
 	gulp.watch("index.html", copyIndex);
 	gulp.watch("src/assets/img/*", copyImgs);
-	gulp.watch("src/sass/*.sass", styles);
+	gulp.watch("src/styles/*.less", styles);
 	gulp.watch('src/css/*.ttf', copyFonts);
 	gulp.watch("src/**/*.ts", scripts);
 	gulp.watch("src/sw.js", copyServiceWorker);
@@ -153,13 +152,12 @@ function copyImgsDist()
 		.pipe(gulp.dest("dist/assets/img"));
 }
 
-//sets gulp to add prefixes with Autoprefixer after Dreamweaver outputs the Sass filee to CSS
-//once the prefixer finishes its job, outputs the file to the distribution folder
+//converts the less files to css and adds prefixes with Autoprefixer
 function stylesDist()
 {
 	return gulp
-		.src("src/sass/*.sass")
-		.pipe(sass().on('error', sass.logError))
+		.src("src/styles/*.less")
+		.pipe(less())
 		.pipe(postcss([autoprefixer()]))
 		.pipe(gulp.dest("./dist/css"));
 }
