@@ -9,7 +9,8 @@ const rename = require("gulp-rename");
 const replace = require("gulp-replace");
 const path = require('path');
 const fs = require("fs");
-var Server = require('karma').Server;
+const Server = require('karma').Server;
+const parseConfig = require('karma').config.parseConfig;
 let bs;
 const rollupStream = require("@rollup/stream");
 const commonjs = require("@rollup/plugin-commonjs");
@@ -255,9 +256,7 @@ function setupTests() {
 // automatic testing in whatever browser is defined in the Karma config file
 function unitTest()
 {
-	return new Server({
-	    configFile: __dirname + '/karma.conf.js'
-	  }).start();
+	return new Server(parseConfig(__dirname + '/karma.conf.js')).start();
 }
 
 gulp.task('test', gulp.series(
