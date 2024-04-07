@@ -71,7 +71,7 @@
     "@angular/router": "^17.3.3",
     "@angular/service-worker": "^17.3.3",
     "@fortawesome/angular-fontawesome": "^0.14.1",
-    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "compression": "^1.7.4",
     "core-js": "^3.36.1",
     "dotenv": "^16.4.5",
