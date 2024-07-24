@@ -50,7 +50,7 @@
     "karma-sourcemap-loader": "^0.4.0",
     "less": "^4.2.0",
     "magic-string": "^0.30.10",
-    "postcss": "^8.4.39",
+    "postcss": "^8.4.40",
     "puppeteer": "^22.13.1",
     "rollup": "^4.18.1",
     "rollup-plugin-istanbul": "^5.0.0",
