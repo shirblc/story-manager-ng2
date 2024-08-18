@@ -32,7 +32,7 @@
     "@types/node": "^22.2.0",
     "autoprefixer": "^10.4.20",
     "browser-sync": "^3.0.2",
-    "cypress": "^13.13.2",
+    "cypress": "^13.13.3",
     "gulp": "^5.0.0",
     "gulp-less": "^5.0.0",
     "gulp-postcss": "^10.0.0",
