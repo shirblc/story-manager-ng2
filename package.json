@@ -51,7 +51,7 @@
     "less": "^4.2.0",
     "magic-string": "^0.30.11",
     "postcss": "^8.4.44",
-    "puppeteer": "^23.2.2",
+    "puppeteer": "^23.3.0",
     "rollup": "^4.21.2",
     "rollup-plugin-istanbul": "^5.0.0",
     "tslib": "^2.7.0",
