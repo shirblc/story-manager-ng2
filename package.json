@@ -31,7 +31,7 @@
     "@types/jasmine": "^5.1.7",
     "@types/node": "^22.13.11",
     "autoprefixer": "^10.4.21",
-    "browser-sync": "^3.0.3",
+    "browser-sync": "^3.0.4",
     "cypress": "^14.2.0",
     "gulp": "^5.0.0",
     "gulp-less": "^5.0.0",
